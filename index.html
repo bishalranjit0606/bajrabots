@@ -1,0 +1,2445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bajra Bots — AI Automation. Built for modern businesses.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    /* ============================================================
+       CSS VARIABLES & RESET
+    ============================================================ */
+    :root {
+      /* Theme Neutral */
+      --accent: #4f46e5;
+      --accent-light: #6366f1;
+      --accent-soft: #f5f3ff;
+      --accent-gold: #f59e0b;
+      --radius-sm: 8px;
+      --radius-md: 18px;
+      --radius-lg: 32px;
+      --radius-pill: 99px;
+      --transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      --font-display: 'Outfit', sans-serif;
+      --font-body: 'Outfit', sans-serif;
+
+      /* Light Theme (Default) */
+      --bg: #fafafb;
+      --bg-card: #ffffff;
+      --bg-dark: #0a0b10;
+      --bg-glass: rgba(249, 249, 247, 0.82);
+      --text-primary: #000000;
+      --text-secondary: #424245;
+      --text-muted: #86868b;
+      --border: #d2d2d7;
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.12);
+      --mockup-bg: rgba(255, 255, 255, 0.4);
+      --card-bg: #fff;
+      --bg-rgb: 250, 250, 251;
+      /* Match #fafafb */
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* ============================================================
+       UTILITY
+    ============================================================ */
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+    }
+
+    .badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: block;
+    }
+
+    /* ============================================================
+       NAVBAR
+    ============================================================ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(249, 249, 247, 0.82);
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow var(--transition);
+    }
+
+    nav.scrolled {
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Make navbar content full-width (logo left, actions right) */
+    nav .container.nav-inner {
+      max-width: none;
+      width: 100%;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      gap: 18px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      flex-shrink: 0;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .nav-logo-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .nav-logo-icon img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .nav-logo-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: white;
+    }
+
+    /* Keep the branded logo mark in the footer */
+    .footer-logo .nav-logo-icon {
+      background: linear-gradient(135deg, var(--accent) 0%, #7f8fff 100%);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      margin: 0;
+      list-style: none;
+    }
+
+    .nav-links a {
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color var(--transition), background var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      border: none;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1.5px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--text-muted);
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 2px 16px rgba(64, 96, 240, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-light);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(64, 96, 240, 0.38);
+    }
+
+    .btn-lg {
+      font-size: 16px;
+      padding: 14px 32px;
+    }
+
+    .btn-xl {
+      font-size: 17px;
+      padding: 16px 38px;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+    }
+
+    .btn-outline:hover {
+      background: var(--accent-soft);
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      text-align: center;
+      padding: 100px 32px 0;
+      position: relative;
+      overflow: hidden;
+      background: transparent;
+      min-height: 100vh;
+    }
+
+    .hero-video-wrap {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .hero-video-wrap video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: var(--bg);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: transparent;
+    }
+
+    /* Mesh blobs — fallback / supplement when video is loading */
+    .hero-mesh {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      animation: blobDrift 20s infinite alternate ease-in-out;
+    }
+    .hero-blob-1 {
+      width: 70vw;
+      height: 70vw;
+      top: -20%;
+      left: -10%;
+      background: radial-gradient(circle, rgba(79, 70, 229, 0.18) 0%, transparent 65%);
+    }
+    .hero-blob-2 {
+      width: 50vw;
+      height: 50vw;
+      bottom: -10%;
+      right: -5%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, transparent 65%);
+      animation-delay: -10s;
+      animation-duration: 25s;
+    }
+    @keyframes blobDrift {
+      0%   { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(5%, 6%) scale(1.08); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(52px, 9vw, 98px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: #0b0c10;
+      max-width: 960px;
+      margin: 0 auto 32px;
+      background: none;
+      -webkit-text-fill-color: currentColor;
+      text-shadow: 0 2px 18px rgba(255, 255, 255, 0.65), 0 2px 10px rgba(0, 0, 0, 0.25);
+      padding-bottom: 8px;
+      transition: none;
+    }
+
+    [data-theme="dark"] .hero h1 {
+      color: #ffffff;
+      background: none;
+      -webkit-text-fill-color: currentColor;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.65);
+    }
+
+    .hero-sub {
+      font-size: 24px;
+      color: #111827;
+      font-weight: 400;
+      max-width: 680px;
+      margin: 0 auto 56px;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      opacity: 0.9;
+    }
+
+    [data-theme="dark"] .hero-sub {
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 80px;
+    }
+
+    .btn-primary {
+      box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+    }
+
+
+
+    /* ============================================================
+       SECTION BASE
+    ============================================================ */
+    section {
+      padding: 140px 0;
+    }
+
+    .section-tag {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .section-headline {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.015em;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 24px;
+      color: var(--text-primary);
+    }
+
+    .section-sub {
+      font-size: 21px;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+    }
+
+    /* ============================================================
+       PLATFORM SECTION
+    ============================================================ */
+    .platform {
+      background: var(--bg-card);
+    }
+
+    .platform-preview {
+      margin: 64px auto 0;
+      max-width: 1000px;
+      position: relative;
+    }
+
+    .mockup-container {
+      background: var(--mockup-bg);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 24px;
+      min-height: 500px;
+      text-align: left;
+      overflow: hidden;
+      transition: background var(--transition), border var(--transition);
+    }
+
+    .mockup-sidebar {
+      border-right: 1px solid rgba(0, 0, 0, 0.05);
+      padding-right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sidebar-item {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: default;
+    }
+
+    .sidebar-item i {
+      margin-right: 8px;
+      width: 14px;
+    }
+
+    .sidebar-item.active {
+      background: var(--accent-light);
+      color: #fff;
+    }
+
+    .mockup-caption {
+      font-size: 13px;
+      color: var(--text-primary);
+      line-height: 1.5;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    .mockup-tag {
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 600;
+      background: var(--accent-soft);
+      padding: 2px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: 8px;
+    }
+
+    .mockup-main {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .mockup-user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      margin-top: auto;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .user-avatar {
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      position: relative;
+    }
+
+    .user-status-dot {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border: 2px solid var(--card-bg);
+      border-radius: 50%;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .user-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .user-role {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .mockup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .header-pill {
+      height: 24px;
+      width: 100px;
+      background: rgba(0, 0, 0, 0.03);
+      border-radius: 12px;
+    }
+
+    .mockup-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: background var(--transition), border var(--transition);
+    }
+
+    .stat-val {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .mockup-content {
+      flex: 1;
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: background var(--transition), border var(--transition);
+    }
+
+    .content-line {
+      height: 10px;
+      background: rgba(0, 0, 0, 0.03);
+      border-radius: 5px;
+    }
+
+    .content-img {
+      aspect-ratio: 16/7;
+      background: linear-gradient(135deg, #f0f1ff, #e0e4ff);
+      border-radius: 8px;
+    }
+
+    .floating-badge {
+      position: absolute;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      padding: 10px 16px;
+      border-radius: 30px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 5;
+      font-weight: 600;
+      font-size: 13px;
+      border: 1px solid var(--border);
+      transition: background var(--transition), color var(--transition), border var(--transition);
+    }
+
+    .badge-top {
+      top: -20px;
+      right: 40px;
+      animation: float-slow 4s infinite alternate ease-in-out;
+    }
+
+    .badge-bottom {
+      bottom: 40px;
+      left: -30px;
+      animation: float-slow 5s infinite alternate-reverse ease-in-out;
+    }
+
+    @keyframes float-slow {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(-15px);
+      }
+    }
+
+    .platform-card h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .platform-card p {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.4);
+      line-height: 1.5;
+    }
+
+    .platform-flow {
+      background: #1a1a2e;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .flow-step {
+      flex: 1;
+      text-align: center;
+    }
+
+    .flow-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(64, 96, 240, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px;
+      font-size: 18px;
+    }
+
+    .flow-label {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .flow-arrow {
+      color: rgba(64, 96, 240, 0.5);
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       FEATURE SECTIONS
+    ============================================================ */
+    .features {
+      background: var(--bg);
+    }
+
+    .feature-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .feature-block+.feature-block {
+      margin-top: 120px;
+    }
+
+    .feature-block.reverse {
+      direction: rtl;
+    }
+
+    .feature-block.reverse>* {
+      direction: ltr;
+    }
+
+
+    .feature-eyebrow {
+      margin-bottom: 18px;
+    }
+
+    .feature-headline {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+
+    .feature-desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .feature-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .feature-link:hover {
+      gap: 9px;
+    }
+
+    .feature-visual {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background: #12121f;
+      min-height: 320px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Agent Visual */
+    .agent-card {
+      background: #1c1c30;
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .agent-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #7f8fff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .agent-body {
+      flex: 1;
+    }
+
+    .agent-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .agent-task {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .agent-progress-bar {
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+
+    .agent-progress-fill {
+      height: 100%;
+      background: var(--accent-light);
+      border-radius: 2px;
+      animation: fillBar 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes fillBar {
+      from {
+        width: 30%;
+      }
+
+      to {
+        width: 85%;
+      }
+    }
+
+    .agent-log {
+      background: #0d0d1a;
+      border-radius: 8px;
+      padding: 14px;
+      font-family: monospace;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.8;
+    }
+
+    .log-line {
+      display: flex;
+      gap: 10px;
+    }
+
+    .log-time {
+      color: rgba(64, 96, 240, 0.7);
+    }
+
+    .log-ok {
+      color: #4de88e;
+    }
+
+    /* Workflow Visual */
+    .wf-node {
+      background: #1c1c30;
+      border-radius: 10px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .wf-icon {
+      font-size: 16px;
+    }
+
+    .wf-connector {
+      display: flex;
+      align-items: center;
+      padding: 4px 16px;
+    }
+
+    .wf-line {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(64, 96, 240, 0.4), rgba(127, 143, 255, 0.4));
+    }
+
+    .wf-arrow {
+      color: var(--accent-light);
+      font-size: 14px;
+    }
+
+    .wf-badge {
+      margin-left: auto;
+      font-size: 10px;
+      background: rgba(64, 96, 240, 0.2);
+      color: var(--accent-light);
+      padding: 2px 8px;
+      border-radius: 99px;
+    }
+
+    /* Integrations Visual */
+    .integrations-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .integration-chip {
+      background: #1c1c30;
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .integration-chip:hover {
+      background: rgba(64, 96, 240, 0.15);
+    }
+
+    .integration-logo {
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+
+    .integration-name {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .integration-status {
+      background: #1c1c30;
+      border-radius: 10px;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .int-dot {
+      width: 8px;
+      height: 8px;
+      background: #4de88e;
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.4;
+      }
+    }
+
+    /* ============================================================
+       USE CASES
+    ============================================================ */
+    .usecases {
+      background: var(--bg);
+    }
+
+    .usecase-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 80px;
+    }
+
+    .usecase-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      transition: all var(--transition);
+      cursor: default;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .usecase-card:hover {
+      background: var(--bg-card);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+
+    .uc-icon {
+      font-size: 24px;
+      margin-bottom: 24px;
+      width: 48px;
+      height: 48px;
+      background: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+    }
+
+    .uc-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .uc-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       SOCIAL PROOF
+    ============================================================ */
+    .social-proof {
+      background: var(--bg);
+      text-align: center;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      margin-top: 56px;
+      margin-bottom: 80px;
+    }
+
+    .logo-placeholder {
+      height: 28px;
+      background: var(--border);
+      border-radius: 4px;
+      opacity: 0.7;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      margin-top: 0;
+    }
+
+    .testimonial {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px;
+    }
+
+    .testimonial-quote {
+      font-size: 15px;
+      color: var(--text-primary);
+      line-height: 1.65;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #adb8ff);
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .author-role {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ============================================================
+       FINAL CTA
+    ============================================================ */
+    .final-cta {
+      background: var(--bg-dark);
+      text-align: center;
+      padding: 140px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 100%, rgba(64, 96, 240, 0.22) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 20%, rgba(127, 143, 255, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .final-cta>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-cta h2 {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 6vw, 72px);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      max-width: 720px;
+      margin: 0 auto 18px;
+    }
+
+    .final-cta h2 em {
+      font-style: italic;
+      color: var(--accent-light);
+    }
+
+    .final-cta p {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 440px;
+      margin: 0 auto 48px;
+      line-height: 1.6;
+    }
+
+    .final-cta-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      background: #fff;
+      color: var(--accent);
+      font-size: 16px;
+      padding: 14px 34px;
+    }
+
+    .btn-white:hover {
+      background: #f0f2ff;
+      transform: translateY(-1px);
+    }
+
+    .btn-dark-outline {
+      background: transparent;
+      color: rgba(255, 255, 255, 0.8);
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      font-size: 16px;
+      padding: 14px 34px;
+    }
+
+    .btn-dark-outline:hover {
+      border-color: rgba(255, 255, 255, 0.5);
+      color: #fff;
+    }
+
+    /* ============================================================
+       DARK MODE OVERRIDES
+    ============================================================ */
+    [data-theme="dark"] nav {
+      background: rgba(10, 11, 16, 0.85);
+    }
+
+    [data-theme="dark"] .btn-ghost {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--border);
+    }
+
+    [data-theme="dark"] .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    [data-theme="dark"] .header-pill {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    [data-theme="dark"] .content-line {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    [data-theme="dark"] .platform {
+      background: var(--bg-card);
+    }
+
+    [data-theme="dark"] .usecase-card {
+      background: var(--bg-card);
+      border-color: var(--border);
+    }
+
+    [data-theme="dark"] .pricing-card {
+      background: var(--bg-card);
+      border-color: var(--border);
+    }
+
+    [data-theme="dark"] .pricing-card.featured {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    [data-theme="dark"] .hero-blob-1,
+    [data-theme="dark"] .hero-blob-2 {
+      opacity: 0.7;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--bg-dark);
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 64px 32px 40px;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 80px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      margin-bottom: 40px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.38);
+      line-height: 1.6;
+    }
+
+    .footer-cols {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+
+    .footer-col h5 {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col a {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.42);
+      transition: color var(--transition);
+    }
+
+    .footer-col a:hover {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.28);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-legal a {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.28);
+      transition: color var(--transition);
+    }
+
+    .footer-legal a:hover {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* ============================================================
+       SCROLL ANIMATIONS (Apple Style)
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      filter: blur(8px);
+      transform: translateY(30px) scale(0.98);
+      transition:
+        opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform, filter;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0) scale(1);
+    }
+
+    /* Directional Reveals */
+    .reveal-left {
+      transform: translateX(-40px);
+    }
+
+    .reveal-right {
+      transform: translateX(40px);
+    }
+
+    .reveal-scale {
+      transform: scale(0.94);
+    }
+
+    .reveal-down {
+      transform: translateY(-40px);
+    }
+
+    /* Staggered Delays (Up to 1.2s) */
+    .delay-100 {
+      transition-delay: 100ms;
+    }
+
+    .delay-200 {
+      transition-delay: 200ms;
+    }
+
+    .delay-300 {
+      transition-delay: 300ms;
+    }
+
+    .delay-400 {
+      transition-delay: 400ms;
+    }
+
+    .delay-500 {
+      transition-delay: 500ms;
+    }
+
+    .delay-600 {
+      transition-delay: 600ms;
+    }
+
+    .delay-700 {
+      transition-delay: 700ms;
+    }
+
+    .delay-800 {
+      transition-delay: 800ms;
+    }
+
+    /* Hero Load Animations */
+    .hero-load-1 {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: heroFadeIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+    }
+
+    .hero-load-2 {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: heroFadeIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.4s;
+    }
+
+    .hero-load-3 {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroFadeIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.6s;
+    }
+
+    @keyframes heroFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .premium-card {
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+        box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+        background 0.4s ease;
+    }
+
+    .premium-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 72px 20px 0;
+      }
+
+      section {
+        padding: 96px 0;
+      }
+
+      .feature-block {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        direction: ltr !important;
+      }
+
+      .platform-preview {
+        margin-top: 44px;
+      }
+
+      .feature-block.reverse>* {
+        direction: ltr;
+      }
+
+      .platform-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .usecase-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-cols {
+        grid-template-columns: 1fr 1fr;
+      }
+
+
+    }
+
+    @media (max-width: 580px) {
+      .container {
+        padding: 0 20px;
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .section-tag {
+        margin-bottom: 16px;
+      }
+
+      .section-headline {
+        margin-bottom: 16px;
+      }
+
+      .platform-preview {
+        margin-top: 36px;
+      }
+
+      .mockup-container {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .mockup-sidebar {
+        display: none;
+      }
+
+      .floating-badge {
+        font-size: 11px;
+        padding: 8px 12px;
+      }
+
+      .badge-bottom {
+        left: 10px;
+        bottom: -10px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-actions .btn-lg {
+        width: 100%;
+        max-width: 360px;
+      }
+
+      .hero-sub {
+        font-size: 18px;
+        margin-bottom: 36px;
+      }
+
+      .platform-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .logo-row {
+        gap: 32px;
+      }
+
+      .footer-cols {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ============================================================
+       TESTIMONIAL MARQUEE
+    ============================================================ */
+    .testimonial-marquee-wrap {
+      margin-top: 60px;
+      overflow: hidden;
+      position: relative;
+      /* Fade-out edges */
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+
+    @media (max-width: 580px) {
+      .testimonial-marquee-wrap {
+        margin-top: 32px;
+      }
+
+      .marquee-track {
+        gap: 16px;
+      }
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 24px;
+      width: max-content;
+      animation: marquee-scroll 40s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee-scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Testimonial Card */
+    .tcard {
+      flex-shrink: 0;
+      width: 340px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .tcard:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Accent variant (purple gradient top border) */
+    .tcard-accent {
+      background: linear-gradient(145deg, rgba(79, 70, 229, 0.06) 0%, var(--bg-card) 60%);
+      border-color: rgba(79, 70, 229, 0.25);
+    }
+
+    /* Dark variant */
+    .tcard-dark {
+      background: linear-gradient(145deg, #0f1020, #1a1b2e);
+      border-color: rgba(255, 255, 255, 0.08);
+      color: #fff;
+    }
+
+    .tcard-dark .tcard-quote {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .tcard-dark .tcard-name {
+      color: #fff;
+    }
+
+    .tcard-dark .tcard-role {
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    .tcard-stars {
+      font-size: 16px;
+      color: #f59e0b;
+      letter-spacing: 2px;
+    }
+
+    .tcard-quote {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      font-style: italic;
+      flex: 1;
+    }
+
+    .tcard-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .tcard-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+      flex-shrink: 0;
+    }
+
+    .tcard-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .tcard-role {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">
+          <img src="logo.png" alt="Bajra Bots Logo">
+        </div>
+        Bajra Bots
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#platform">Product</a></li>
+          <li><a href="#features">Services</a></li>
+          <li><a href="#usecases">Use Cases</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#footer">Resources</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="#" class="btn btn-ghost">Book Demo</a>
+          <a href="#pricing" class="btn btn-primary">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-video-wrap">
+      <video src="video.mp4" autoplay loop muted playsinline></video>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-mesh" aria-hidden="true">
+      <div class="hero-blob hero-blob-1"></div>
+      <div class="hero-blob hero-blob-2"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow hero-load-1">
+        <span class="badge">AI AUTOMATION PLATFORM</span>
+      </div>
+      <h1 class="hero-load-2" style="font-weight: 700;">AI Automation.<br>Built for modern<br>businesses.</h1>
+      <p class="hero-sub hero-load-3">Automate your repetitive tasks with intelligent AI agents. Starting with
+        <strong>fully automated social media management</strong>.
+      </p>
+      <div class="hero-actions hero-load-3">
+        <a href="#pricing" class="btn btn-primary btn-lg">View Pricing</a>
+        <a href="#platform" class="btn btn-ghost btn-lg">How it Works <i class="fa-solid fa-arrow-right"
+            style="font-size: 16px;"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS BAJRA BOTS -->
+  <section class="about" id="about" style="background: var(--bg);">
+    <div class="container">
+      <div class="section-tag reveal"><span class="badge">The Mission</span></div>
+      <h2 class="section-headline reveal delay-100">One Platform. Total Automation.</h2>
+      <p class="section-sub reveal delay-200" style="max-width: 800px; margin-bottom: 60px;">Bajra Bots is an
+        AI-powered automation platform designed to help small and medium businesses in Nepal save time by automating
+        repetitive tasks using intelligent AI agents.</p>
+
+      <div class="feature-block reveal" style="align-items: center; margin-top: 0;">
+        <div class="feature-text">
+          <p class="feature-desc" style="font-size: 18px;">Our initial product focuses on <strong>fully automated social
+              media content generation and posting</strong>. This allows businesses to maintain an active online
+            presence without needing social media expertise or manual effort.</p>
+          <p class="feature-desc" style="font-size: 18px;">In the future, Bajra Bots will expand into a complete
+            automation partner — allowing businesses to automate customer support via AI chatbots, lead management, and
+            custom business workflows.</p>
+        </div>
+        <div class="feature-visual" style="background: transparent; box-shadow: none; padding: 0;">
+          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200"
+            alt="Bajra Automation Platform"
+            style="width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORM -->
+  <section class="platform" id="platform">
+    <div class="container">
+      <div class="section-tag reveal"><span class="badge">First Service</span></div>
+      <h2 class="section-headline reveal reveal-delay-1">Social Media Automation</h2>
+      <p class="section-sub reveal reveal-delay-2">Our flagship automation service. Maintain an active online presence
+        across Facebook, Instagram, and TikTok without manual effort.</p>
+
+      <div class="platform-preview reveal reveal-delay-2">
+        <div class="floating-badge badge-top">
+          <i class="fa-solid fa-circle-check" style="color: #10b981;"></i> Post Scheduled
+        </div>
+        <div class="floating-badge badge-bottom">
+          <i class="fa-solid fa-bolt" style="color: var(--accent-gold);"></i> AI Agent Active
+        </div>
+
+        <div class="mockup-container">
+          <div class="mockup-sidebar">
+            <div class="sidebar-item active"><i class="fa-solid fa-house"></i> Dashboard</div>
+            <div class="sidebar-item"><i class="fa-solid fa-robot"></i> AI Agents</div>
+            <div class="sidebar-item"><i class="fa-solid fa-calendar-days"></i> Scheduled</div>
+            <div class="sidebar-item"><i class="fa-solid fa-gear"></i> Settings</div>
+
+            <div class="mockup-user">
+              <div class="user-avatar">
+                B
+                <div class="user-status-dot"></div>
+              </div>
+              <div class="user-info">
+                <div class="user-name">Bishal</div>
+                <div class="user-role">Account Active</div>
+              </div>
+            </div>
+          </div>
+          <div class="mockup-main">
+            <div class="mockup-header">
+              <div class="header-pill"></div>
+              <div class="header-pill" style="width: 60px;"></div>
+            </div>
+            <div class="mockup-stats">
+              <div class="stat-card">
+                <div class="stat-val">124</div>
+                <div class="stat-label">Posts Out</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-val">4.8k</div>
+                <div class="stat-label">Engagement</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-val">99%</div>
+                <div class="stat-label">AI Accuracy</div>
+              </div>
+            </div>
+            <div class="mockup-content">
+              <img
+                src="https://images.unsplash.com/photo-1683721003111-070bcc053d8b?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c29jaWFsJTIwbWVkaWF8ZW58MHx8MHx8fDA%3D"
+                alt="Post Preview" class="content-img" style="object-fit: cover;">
+              <div>
+                <span class="mockup-tag">AI Caption</span>
+                <p class="mockup-caption">"Savor the authentic spices of Kathmandu. Every bite tells a story of
+                  tradition and flavor. #BajraBots #LocalEats"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features" style="padding-top: 120px; padding-bottom: 120px;">
+
+    <!-- Feature 1: AI Content -->
+    <div class="feature-block reveal">
+      <div class="feature-text reveal-left delay-100">
+        <div class="feature-eyebrow"><span class="badge">AI Content Lab</span></div>
+        <h3 class="feature-headline">Stunning images and captions created for you.</h3>
+        <p class="feature-desc">Using Google Gemini, we generate daily images and AI-written captions tailored
+          specifically to your business — from shoe shops to fancy cafes.</p>
+        <a href="#" class="feature-link">View Sample Content →</a>
+      </div>
+      <div class="feature-visual reveal-right delay-200">
+        <div class="agent-card">
+          <div class="agent-avatar"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <div class="agent-body">
+            <div class="agent-title">Gemini Pro Agent</div>
+            <div class="agent-task">Generating caption for Instagram post…</div>
+            <div class="agent-progress-bar">
+              <div class="agent-progress-fill"></div>
+            </div>
+          </div>
+        </div>
+        <div class="agent-card" style="margin-top:4px;">
+          <div class="agent-avatar" style="background: linear-gradient(135deg,var(--accent-gold), #f59e0b);"><i
+              class="fa-solid fa-palette"></i></div>
+          <div class="agent-body">
+            <div class="agent-title">Visual Creator</div>
+            <div class="agent-task">Rendering 4K product showcase image…</div>
+            <div class="agent-progress-bar">
+              <div class="agent-progress-fill" style="animation-delay:0.5s;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="agent-log">
+          <div class="log-line"><span class="log-time">10:45:02</span><span class="log-ok">[✓]</span> Caption generated:
+            "Savor the best momos in Kathmandu..."</div>
+          <div class="log-line"><span class="log-time">10:45:07</span><span class="log-ok">[✓]</span> Image upscaling
+            complete</div>
+          <div class="log-line"><span class="log-time">10:45:11</span>[ ] Final post review in progress…</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 2: n8n Automation -->
+    <div class="feature-block reverse reveal" style="margin-top: 120px;">
+      <div class="feature-text reveal-right delay-100">
+        <div class="feature-eyebrow"><span class="badge">Smart Scheduling</span></div>
+        <h3 class="feature-headline">Set it and forget it.<br>We post every day.</h3>
+        <p class="feature-desc">Powered by n8n, our automation engine handles the scheduling and posting across
+          Facebook, Instagram, and TikTok at the most optimal times for engagement.</p>
+        <a href="#" class="feature-link">See How it Works →</a>
+      </div>
+      <div class="feature-visual reveal-left delay-300" style="padding: 40px;">
+        <div class="wf-node"><i class="fa-solid fa-clock" style="color: var(--accent-light);"></i> 9:00 AM Daily Trigger
+          <span class="wf-badge">Schedule</span>
+        </div>
+        <div class="wf-connector">
+          <div class="wf-line"></div>
+          <div class="wf-arrow">▼</div>
+        </div>
+        <div class="wf-node"><i class="fa-solid fa-robot" style="color: var(--accent-light);"></i> Gemini Generation
+          <span class="wf-badge">AI Step</span>
+        </div>
+        <div class="wf-connector">
+          <div class="wf-line"></div>
+          <div class="wf-arrow">▼</div>
+        </div>
+        <div class="wf-node"><i class="fa-brands fa-instagram" style="color: var(--accent-light);"></i> Post to
+          Instagram <span class="wf-badge">Action</span></div>
+        <div class="wf-connector">
+          <div class="wf-line"></div>
+          <div class="wf-arrow">▼</div>
+        </div>
+        <div class="wf-node"><i class="fa-brands fa-facebook" style="color: var(--accent-light);"></i> Repost to
+          Facebook <span class="wf-badge">Action</span></div>
+        <div class="wf-connector">
+          <div class="wf-line"></div>
+          <div class="wf-arrow">▼</div>
+        </div>
+        <div class="wf-node" style="border: 1px solid rgba(79, 70, 229,0.3);"><i class="fa-solid fa-circle-check"
+            style="color: #4de88e;"></i> Sequence
+          Complete</div>
+      </div>
+    </div>
+
+    <!-- Feature 3: Multi-Platform -->
+    <div class="feature-block reveal" style="margin-top: 120px;">
+      <div class="feature-text">
+        <div class="feature-eyebrow"><span class="badge">Multi-Platform</span></div>
+        <h3 class="feature-headline">One subscription.<br>Every platform.</h3>
+        <p class="feature-desc">Connect your business to Facebook, Instagram, and TikTok. No more switching apps or
+          manual uploads — your brand stays consistent everywhere.</p>
+        <a href="#" class="feature-link">View Supported Platforms →</a>
+      </div>
+      <div class="feature-visual">
+        <div class="integrations-grid">
+          <div class="integration-chip">
+            <div class="integration-logo"><i class="fa-brands fa-instagram"></i></div>
+            <div class="integration-name">Instagram</div>
+          </div>
+          <div class="integration-chip">
+            <div class="integration-logo"><i class="fa-brands fa-facebook"></i></div>
+            <div class="integration-name">Facebook</div>
+          </div>
+          <div class="integration-chip">
+            <div class="integration-logo"><i class="fa-brands fa-tiktok"></i></div>
+            <div class="integration-name">TikTok</div>
+          </div>
+          <div class="integration-chip">
+            <div class="integration-logo"><i class="fa-solid fa-comment-dots"></i></div>
+            <div class="integration-name">Messenger</div>
+          </div>
+          <div class="integration-chip">
+            <div class="integration-logo"><i class="fa-solid fa-bullseye"></i></div>
+            <div class="integration-name">Ads Manager</div>
+          </div>
+          <div class="integration-chip">
+            <div class="integration-logo"><i class="fa-solid fa-chart-line"></i></div>
+            <div class="integration-name">Insights</div>
+          </div>
+        </div>
+        <div class="integration-status" style="margin-top:12px;">
+          <div class="int-dot"></div>
+          Live connection with Meta & TikTok APIs
+        </div>
+      </div>
+    </div>
+
+    <!-- Future Services Roadmap -->
+    <div class="container" style="margin-top: 96px;">
+      <div class="feature-block reveal" style="align-items: center;">
+        <div class="feature-text" style="text-align: left;">
+          <div class="section-tag" style="text-align: left;"><span class="badge">Roadmap</span></div>
+          <h2 class="section-headline" style="text-align: left; margin: 0 0 20px;">The Future of<br>Bajra Bots.</h2>
+          <p class="feature-desc">We are continuously expanding our suite of AI automation tools to help your business
+            scale. Beyond social media, we are building tools for full operational efficiency.</p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 32px;">
+            <div class="usecase-card" style="padding: 20px; background: var(--bg-card);">
+              <div class="uc-title" style="display: flex; align-items: center; gap: 8px; font-size: 14px;"><i
+                  class="fa-solid fa-message"></i> AI Chatbots</div>
+              <p style="font-size: 12px; color: var(--text-secondary);">24/7 customer support agents.</p>
+            </div>
+            <div class="usecase-card" style="padding: 20px; background: var(--bg-card);">
+              <div class="uc-title" style="display: flex; align-items: center; gap: 8px; font-size: 14px;"><i
+                  class="fa-solid fa-bolt"></i> Custom Apps</div>
+              <p style="font-size: 12px; color: var(--text-secondary);">Tailored business workflows.</p>
+            </div>
+          </div>
+        </div>
+        <div class="feature-visual" style="background: transparent; box-shadow: none; padding: 0;">
+          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200"
+            alt="Future AI Services"
+            style="width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing" style="background: var(--bg-card);">
+    <div class="container">
+      <div class="section-tag reveal"><span class="badge">Pricing Plans</span></div>
+      <h2 class="section-headline reveal reveal-delay-1">Simple, affordable plans<br>for local businesses.</h2>
+      <p class="section-sub reveal reveal-delay-2">No social media manager costs. No complex design skills needed. Just
+        AI working for you.</p>
+
+      <div class="usecase-grid reveal reveal-delay-2" style="margin-top: 60px;">
+        <!-- Starter Plan -->
+        <div class="usecase-card" style="display: flex; flex-direction: column;">
+          <div class="uc-icon"><i class="fa-solid fa-leaf" style="color: var(--accent);"></i></div>
+          <div class="uc-title">Starter Plan</div>
+          <div class="uc-desc"
+            style="font-size: 24px; font-weight: 700; color: var(--text-primary); margin-bottom: 20px;">NPR 999 <span
+              style="font-size: 14px; font-weight: 400; color: var(--text-muted);">/ mo</span></div>
+          <ul
+            style="list-style: none; font-size: 14px; color: var(--text-secondary); line-height: 2.2; margin-bottom: 32px; flex-grow: 1;">
+            <li><i class="fa-solid fa-check" style="font-size: 14px; color: #4de88e;"></i> 1 AI Image Post / day</li>
+            <li><i class="fa-solid fa-check" style="font-size: 14px; color: #4de88e;"></i> AI-written captions</li>
+            <li><i class="fa-solid fa-check" style="font-size: 14px; color: #4de88e;"></i> Automatic FB Posting</li>
+            <li><i class="fa-solid fa-check" style="font-size: 14px; color: #4de88e;"></i> Business Name & Phone</li>
+            <li><i class="fa-solid fa-check" style="font-size: 14px; color: #4de88e;"></i> Automated scheduling</li>
+          </ul>
+          <a href="#" class="btn btn-ghost" style="width: 100%;">Select Plan</a>
+        </div>
+
+        <!-- Standard Plan -->
+        <div class="usecase-card"
+          style="display: flex; flex-direction: column; border: 2.5px solid var(--accent); position: relative; transform: scale(1.05); z-index: 10; background: #fff; box-shadow: var(--shadow-lg);">
+          <div
+            style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 16px; border-radius: 99px; letter-spacing: 0.05em;">
+            MOST POPULAR</div>
+          <div class="uc-icon"><i class="fa-solid fa-star" style="color: var(--accent);"></i></div>
+          <div class="uc-title">Standard Plan</div>
+          <div class="uc-desc"
+            style="font-size: 24px; font-weight: 700; color: var(--text-primary); margin-bottom: 20px;">NPR 1,499 <span
+              style="font-size: 14px; font-weight: 400; color: var(--text-muted);">/ mo</span></div>
+          <ul
+            style="list-style: none; font-size: 14px; color: var(--text-secondary); line-height: 2.2; margin-bottom: 32px; flex-grow: 1;">
+            <li><i class="fa-solid fa-check" style="font-size: 14px; color: #4de88e;"></i> 1 AI Image Post / day</li>
+            <li><i class="fa-solid fa-check" style="font-size: 14px; color: #4de88e;"></i> 2 AI Promo Videos / mo</li>
+            <li><i class="fa-solid fa-check" style="font-size: 14px; color: #4de88e;"></i> Facebook & Instagram</li>
+            <li><i class="fa-solid fa-check" style="font-size: 14px; color: #4de88e;"></i> TikTok content support</li>
+            <li><i class="fa-solid fa-check" style="font-size: 14px; color: #4de88e;"></i> Logo & Contact details</li>
+          </ul>
+          <a href="#" class="btn btn-primary" style="width: 100%;">Select Plan</a>
+        </div>
+
+        <!-- Pro Plan -->
+        <div class="usecase-card" style="display: flex; flex-direction: column;">
+          <div class="uc-icon"><i class="fa-solid fa-rocket" style="color: var(--accent);"></i></div>
+          <div class="uc-title">Pro Plan</div>
+          <div class="uc-desc"
+            style="font-size: 24px; font-weight: 700; color: var(--text-primary); margin-bottom: 20px;">NPR 1,999 <span
+              style="font-size: 14px; font-weight: 400; color: var(--text-muted);">/ mo</span></div>
+          <ul
+            style="list-style: none; font-size: 14px; color: var(--text-secondary); line-height: 2.2; margin-bottom: 32px; flex-grow: 1;">
+            <li><i class="fa-solid fa-check" style="font-size: 14px; color: #4de88e;"></i> 1 AI Image Post / day</li>
+            <li><i class="fa-solid fa-check" style="font-size: 14px; color: #4de88e;"></i> 4 AI Promo Videos / mo</li>
+            <li><i class="fa-solid fa-check" style="font-size: 14px; color: #4de88e;"></i> FB, Insta & TikTok</li>
+            <li><i class="fa-solid fa-check" style="font-size: 14px; color: #4de88e;"></i> Advanced branding</li>
+            <li><i class="fa-solid fa-check" style="font-size: 14px; color: #4de88e;"></i> Priority scheduling</li>
+          </ul>
+          <a href="#" class="btn btn-ghost" style="width: 100%;">Select Plan</a>
+        </div>
+
+        <!-- Custom Plan -->
+        <div class="usecase-card"
+          style="display: flex; flex-direction: column; background: var(--bg); border-style: dashed;">
+          <div class="uc-icon"><i class="fa-solid fa-building" style="color: var(--accent);"></i></div>
+          <div class="uc-title">Custom Setup</div>
+          <div class="uc-desc"
+            style="font-size: 24px; font-weight: 700; color: var(--text-primary); margin-bottom: 20px;">NPR 1,000 <span
+              style="font-size: 14px; font-weight: 400; color: var(--text-muted);">one-time</span></div>
+          <p class="uc-desc" style="margin-bottom: 32px; flex-grow: 1;">Need help connecting your pages? Our team will
+            handle the account link-up and brand setup for you.</p>
+          <a href="#" class="btn btn-ghost" style="width: 100%;">Book Setup</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="usecases" id="usecases">
+    <div class="container">
+      <div class="section-tag reveal"><span class="badge">Use Cases</span></div>
+      <h2 class="section-headline reveal reveal-delay-1">Automation for every<br>local business.</h2>
+      <p class="section-sub reveal reveal-delay-2">Whether you run a high-street boutique or a neighborhood cafe, Bajra
+        Bots keeps your brand growing.</p>
+      <div class="usecase-grid reveal reveal-delay-2" style="margin-top: 60px;">
+        <div class="usecase-card">
+          <div class="uc-icon"><i class="fa-solid fa-bag-shopping" style="color: var(--accent);"></i></div>
+          <div class="uc-title">Clothing & Fashion</div>
+          <div class="uc-desc">Showcase your latest designs with AI-generated lifestyle photos and trendy captions that
+            drive visits to your shop.</div>
+        </div>
+        <div class="usecase-card">
+          <div class="uc-icon"><i class="fa-solid fa-mug-hot" style="color: var(--accent);"></i></div>
+          <div class="uc-title">Cafes & Restaurants</div>
+          <div class="uc-desc">Daily posts featuring your signature dishes, seasonal offers, and the cozy vibe of your
+            local eatery.</div>
+        </div>
+        <div class="usecase-card">
+          <div class="uc-icon"><i class="fa-solid fa-cart-shopping" style="color: var(--accent);"></i></div>
+          <div class="uc-title">Local Grocery Stores</div>
+          <div class="uc-desc">Highlight fresh arrivals and daily discounts to keep your local community informed and
+            engaged.</div>
+        </div>
+        <div class="usecase-card">
+          <div class="uc-icon"><i class="fa-solid fa-scissors" style="color: var(--accent);"></i></div>
+          <div class="uc-title">Beauty & Salons</div>
+          <div class="uc-desc">Attract new clients with stunning visual content showing off your services and expert
+            styling.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="social-proof" id="testimonials">
+    <div class="container" style="text-align:center;">
+      <div class="section-tag reveal"><span class="badge">Trusted</span></div>
+      <h2 class="section-headline reveal reveal-delay-1">Loved by Nepalese businesses.</h2>
+      <p class="section-sub reveal reveal-delay-2">Real results from real business owners across Nepal using Bajra Bots
+        every day.</p>
+    </div>
+
+    <!-- Infinite Marquee Testimonials -->
+    <div class="testimonial-marquee-wrap">
+      <div class="marquee-track">
+
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-quote">"Bajra Bots keeps our Facebook page alive while we focus on the kitchen. Our customers
+            love the daily dish highlights!"</p>
+          <div class="tcard-author">
+            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&crop=face"
+              alt="Rajesh Gurung" class="tcard-avatar">
+            <div>
+              <div class="tcard-name">Rajesh Gurung</div>
+              <div class="tcard-role">Owner, Kathmandu Kitchen</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tcard tcard-accent">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-quote">"I don't have time for Instagram. Bajra Bots generates amazing photos of our
+            collections and posts them automatically."</p>
+          <div class="tcard-author">
+            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=80&h=80&fit=crop&crop=face"
+              alt="Sita Thapa" class="tcard-avatar">
+            <div>
+              <div class="tcard-name">Sita Thapa</div>
+              <div class="tcard-role">Founder, Sita's Boutique</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-quote">"We've seen a 40% increase in store visits since Bajra Bots started managing our social
+            media. Worth every paisa!"</p>
+          <div class="tcard-author">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face"
+              alt="Bishal Rai" class="tcard-avatar">
+            <div>
+              <div class="tcard-name">Bishal Rai</div>
+              <div class="tcard-role">Manager, Rai Grocery Store</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tcard tcard-dark">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-quote">"As a salon owner I never had time for social media. Now Bajra Bots does it for me — my
+            bookings doubled!"</p>
+          <div class="tcard-author">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face"
+              alt="Anita Sharma" class="tcard-avatar">
+            <div>
+              <div class="tcard-name">Anita Sharma</div>
+              <div class="tcard-role">Owner, Anita Beauty Salon</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-quote">"The AI-generated content is so professional. My customers ask who does my marketing —
+            I just say Bajra Bots!"</p>
+          <div class="tcard-author">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face"
+              alt="Dipesh Maharjan" class="tcard-avatar">
+            <div>
+              <div class="tcard-name">Dipesh Maharjan</div>
+              <div class="tcard-role">Owner, Maharjan Sweets</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tcard tcard-accent">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-quote">"Setting up only took one afternoon. Now I get beautiful posts every morning without
+            lifting a finger!"</p>
+          <div class="tcard-author">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face"
+              alt="Priya Shrestha" class="tcard-avatar">
+            <div>
+              <div class="tcard-name">Priya Shrestha</div>
+              <div class="tcard-role">Founder, Priya's Clothing</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duplicate set for seamless infinite loop -->
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-quote">"Bajra Bots keeps our Facebook page alive while we focus on the kitchen. Our customers
+            love the daily dish highlights!"</p>
+          <div class="tcard-author">
+            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&crop=face"
+              alt="Rajesh Gurung" class="tcard-avatar">
+            <div>
+              <div class="tcard-name">Rajesh Gurung</div>
+              <div class="tcard-role">Owner, Kathmandu Kitchen</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard tcard-accent">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-quote">"I don't have time for Instagram. Bajra Bots generates amazing photos of our
+            collections and posts them automatically."</p>
+          <div class="tcard-author">
+            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=80&h=80&fit=crop&crop=face"
+              alt="Sita Thapa" class="tcard-avatar">
+            <div>
+              <div class="tcard-name">Sita Thapa</div>
+              <div class="tcard-role">Founder, Sita's Boutique</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-quote">"We've seen a 40% increase in store visits since Bajra Bots started managing our social
+            media. Worth every paisa!"</p>
+          <div class="tcard-author">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face"
+              alt="Bishal Rai" class="tcard-avatar">
+            <div>
+              <div class="tcard-name">Bishal Rai</div>
+              <div class="tcard-role">Manager, Rai Grocery Store</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard tcard-dark">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-quote">"As a salon owner I never had time for social media. Now Bajra Bots does it for me — my
+            bookings doubled!"</p>
+          <div class="tcard-author">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face"
+              alt="Anita Sharma" class="tcard-avatar">
+            <div>
+              <div class="tcard-name">Anita Sharma</div>
+              <div class="tcard-role">Owner, Anita Beauty Salon</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-quote">"The AI-generated content is so professional. My customers ask who does my marketing —
+            I just say Bajra Bots!"</p>
+          <div class="tcard-author">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face"
+              alt="Dipesh Maharjan" class="tcard-avatar">
+            <div>
+              <div class="tcard-name">Dipesh Maharjan</div>
+              <div class="tcard-role">Owner, Maharjan Sweets</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard tcard-accent">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-quote">"Setting up only took one afternoon. Now I get beautiful posts every morning without
+            lifting a finger!"</p>
+          <div class="tcard-author">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face"
+              alt="Priya Shrestha" class="tcard-avatar">
+            <div>
+              <div class="tcard-name">Priya Shrestha</div>
+              <div class="tcard-role">Founder, Priya's Clothing</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="final-cta-bg"></div>
+    <h2 class="reveal">Ready to <em>automate</em> your social media?</h2>
+    <p class="reveal reveal-delay-1">Join 500+ Nepalese businesses saving time and growing online with Bajra Bots.</p>
+    <div class="final-cta-actions reveal reveal-delay-2">
+      <a href="#pricing" class="btn btn-white btn-lg">View Pricing</a>
+      <a href="#" class="btn btn-dark-outline btn-lg">Setup Guide</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="nav-logo-icon">
+              <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:white;">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            Bajra AI
+          </div>
+          <p class="footer-tagline">Making powerful AI automation simple, affordable, and accessible for businesses of
+            all sizes. From social media to full operational automation.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h5>Product</h5>
+            <ul>
+              <li><a href="#">Image Generation</a></li>
+              <li><a href="#">Video Studio</a></li>
+              <li><a href="#">n8n Automation</a></li>
+              <li><a href="#">Pricing</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Success Stories</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Resources</h5>
+            <ul>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">Setup Guide</a></li>
+              <li><a href="#">Status</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Legal</h5>
+            <ul>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Bajra Bots. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Sticky nav shadow
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // Hero video autoplay (handles browser autoplay policy)
+    const vid = document.querySelector('.hero-video-wrap video');
+    if (vid) {
+      vid.muted = true;
+      vid.playsInline = true;
+      const p = vid.play();
+      if (p !== undefined) {
+        p.catch(() => {
+          const resume = () => { vid.play(); };
+          document.addEventListener('click', resume, { once: true });
+          document.addEventListener('touchstart', resume, { once: true });
+        });
+      }
+    }
+
+  </script>
+</body>
+
+</html>
