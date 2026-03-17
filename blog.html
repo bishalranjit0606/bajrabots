@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Bajra Bots</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="site.css" />
+  <style>
+    .post { background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px; padding: 22px; box-shadow: var(--shadow-sm); }
+    .post h3 { font-family: var(--font-display); font-size: 18px; line-height: 1.2; margin-bottom: 10px; }
+    .post p { color: var(--text-secondary); line-height: 1.7; }
+    .meta { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; display:flex; gap:10px; flex-wrap:wrap; }
+    .tag { background: rgba(79,70,229,.10); color: var(--accent); border: 1px solid rgba(79,70,229,.18); padding: 3px 10px; border-radius: 999px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; font-size: 10px; }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon"><img src="logo.png" alt="Bajra Bots Logo"></div>
+        Bajra Bots
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="contact.html" class="btn btn-ghost">Contact</a>
+          <a href="https://wa.me/9779812241818?text=Hi%20Bajra%20Bots%2C%20I%27d%20like%20to%20book%20a%20demo." class="btn btn-primary">Book Demo</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <span class="badge">Blog</span>
+      <h1 style="margin-top:12px;">Notes on AI automation for businesses.</h1>
+      <p>Short, practical posts on workflows, content automation, and getting more done with less effort.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="container grid-2">
+      <article class="post">
+        <div class="meta"><span class="tag">Automation</span> <span><i class="fa-regular fa-calendar"></i> Coming soon</span></div>
+        <h3>How social media automation saves teams hours each week</h3>
+        <p>What to automate first, what to keep human, and how to build a daily posting engine that stays consistent.</p>
+      </article>
+      <article class="post">
+        <div class="meta"><span class="tag">AI</span> <span><i class="fa-regular fa-calendar"></i> Coming soon</span></div>
+        <h3>From captions to scheduling: the simplest AI workflow</h3>
+        <p>A lightweight flow to generate content, approve it quickly, and publish without manual busywork.</p>
+      </article>
+    </div>
+
+    <div class="container">
+      <div class="page-card" style="margin-top:24px;">
+        <h2 style="font-family: var(--font-display); margin-bottom:8px;">Want us to write about your industry?</h2>
+        <p style="color: var(--text-secondary); line-height:1.7;">Message us with your business type and we’ll share content ideas and examples that work for your audience.</p>
+        <div style="margin-top:14px;">
+          <a class="btn btn-primary btn-lg" href="https://wa.me/9779812241818?text=Hi%20Bajra%20Bots%2C%20my%20business%20is%20a%20____%20and%20I%20want%20content%20ideas.">Message on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="nav-logo-icon" style="background: linear-gradient(135deg, var(--accent) 0%, #7f8fff 100%);">
+              <i class="fa-solid fa-bolt" style="color:#fff;"></i>
+            </div>
+            Bajra Bots
+          </div>
+          <p class="footer-tagline">Making powerful AI automation simple, affordable, and accessible.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h5>Pages</h5>
+            <ul>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="resources.html">Resources</a></li>
+              <li><a href="blog.html">Blog</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Legal</h5>
+            <ul>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Contact</h5>
+            <ul>
+              <li><a href="contact.html">WhatsApp +977 9812241818</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Bajra Bots. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="cookies.html">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Bajra Bots</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="site.css" />
+  <meta http-equiv="refresh" content="1; url=https://wa.me/9779812241818?text=Hi%20Bajra%20Bots%2C%20I%27d%20like%20to%20get%20in%20touch." />
+  <style>
+    .center { min-height: calc(100vh - 60px); display: flex; align-items: center; }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+    .muted { color: var(--text-secondary); margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon"><img src="logo.png" alt="Bajra Bots Logo"></div>
+        Bajra Bots
+      </a>
+      <div class="nav-right">
+        <div class="nav-actions">
+          <a href="index.html#pricing" class="btn btn-ghost">View Pricing</a>
+          <a href="https://wa.me/9779812241818?text=Hi%20Bajra%20Bots%2C%20I%27d%20like%20to%20book%20a%20demo." class="btn btn-primary">WhatsApp Us</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="center">
+    <div class="container">
+      <div class="page-card">
+        <span class="badge">Contact</span>
+        <h1 style="margin-top:12px;">Redirecting you to WhatsApp…</h1>
+        <p class="muted">Since this is a static site (no backend forms), all contact requests go through WhatsApp.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-lg" href="https://wa.me/9779812241818?text=Hi%20Bajra%20Bots%2C%20I%27d%20like%20to%20get%20in%20touch.">Open WhatsApp</a>
+          <a class="btn btn-ghost btn-lg" href="index.html">Back to Home</a>
+        </div>
+        <p class="muted">Number: <strong>+977 9812241818</strong></p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Instant redirect (meta refresh is fallback)
+    window.location.replace('https://wa.me/9779812241818?text=' + encodeURIComponent("Hi Bajra Bots, I'd like to get in touch."));
+  </script>
+</body>
+</html>

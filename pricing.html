@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — Bajra Bots</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="site.css" />
+  <style>
+    .price-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .price-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 24px; box-shadow: var(--shadow-sm); display:flex; flex-direction:column; }
+    .price-card.featured { border: 2px solid var(--accent); box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .price-name { font-family: var(--font-display); font-weight: 700; margin-top: 12px; }
+    .price-amt { font-family: var(--font-display); font-size: 28px; font-weight: 700; margin: 10px 0 6px; }
+    .price-amt span { font-size: 13px; font-weight: 500; color: var(--text-muted); }
+    .price-list { list-style:none; display:flex; flex-direction:column; gap:10px; color: var(--text-secondary); font-size: 13.5px; line-height: 1.2; margin: 18px 0 22px; flex:1; }
+    .price-list li { display:flex; gap: 8px; align-items:flex-start; }
+    .price-list i { color: #4de88e; margin-top: 2px; }
+    .badge-top { display:inline-block; background: rgba(79,70,229,.10); color: var(--accent); border: 1px solid rgba(79,70,229,.18); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 999px; letter-spacing: .06em; text-transform: uppercase; }
+    @media (max-width: 900px) { .price-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 580px) { .price-grid { grid-template-columns: 1fr; } .price-card.featured { transform:none; } }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon"><img src="logo.png" alt="Bajra Bots Logo"></div>
+        Bajra Bots
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="contact.html" class="btn btn-ghost">Contact</a>
+          <a href="https://wa.me/9779812241818?text=Hi%20Bajra%20Bots%2C%20I%27d%20like%20to%20book%20a%20demo." class="btn btn-primary">Book Demo</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <span class="badge">Pricing</span>
+      <h1 style="margin-top:12px;">Simple plans for local businesses.</h1>
+      <p>Every plan is set up for consistency: daily posts, automation, and support when you need it.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="container price-grid">
+      <div class="price-card">
+        <div class="badge-top"><i class="fa-solid fa-leaf"></i> Starter</div>
+        <div class="price-name">Starter</div>
+        <div class="price-amt">NPR 999 <span>/ mo</span></div>
+        <ul class="price-list">
+          <li><i class="fa-solid fa-check"></i> 1 AI Image Post / day</li>
+          <li><i class="fa-solid fa-check"></i> AI-written captions</li>
+          <li><i class="fa-solid fa-check"></i> Automatic FB posting</li>
+          <li><i class="fa-solid fa-check"></i> Automated scheduling</li>
+          <li><i class="fa-solid fa-check"></i> Business name & phone</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://wa.me/9779812241818?text=Hi%20Bajra%20Bots%2C%20I%27m%20interested%20in%20the%20Starter%20plan%20(NPR%20999%2Fmo).">Select Plan</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="badge-top"><i class="fa-solid fa-star"></i> Most Popular</div>
+        <div class="price-name">Standard</div>
+        <div class="price-amt">NPR 1,499 <span>/ mo</span></div>
+        <ul class="price-list">
+          <li><i class="fa-solid fa-check"></i> 1 AI Image Post / day</li>
+          <li><i class="fa-solid fa-check"></i> 2 AI Promo Videos / mo</li>
+          <li><i class="fa-solid fa-check"></i> Facebook & Instagram</li>
+          <li><i class="fa-solid fa-check"></i> TikTok content support</li>
+          <li><i class="fa-solid fa-check"></i> Logo & contact details</li>
+        </ul>
+        <a class="btn btn-primary" href="https://wa.me/9779812241818?text=Hi%20Bajra%20Bots%2C%20I%27m%20interested%20in%20the%20Standard%20plan%20(NPR%201499%2Fmo).">Select Plan</a>
+      </div>
+
+      <div class="price-card">
+        <div class="badge-top"><i class="fa-solid fa-rocket"></i> Pro</div>
+        <div class="price-name">Pro</div>
+        <div class="price-amt">NPR 1,999 <span>/ mo</span></div>
+        <ul class="price-list">
+          <li><i class="fa-solid fa-check"></i> 1 AI Image Post / day</li>
+          <li><i class="fa-solid fa-check"></i> 4 AI Promo Videos / mo</li>
+          <li><i class="fa-solid fa-check"></i> FB, Insta & TikTok</li>
+          <li><i class="fa-solid fa-check"></i> Advanced branding</li>
+          <li><i class="fa-solid fa-check"></i> Priority scheduling</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://wa.me/9779812241818?text=Hi%20Bajra%20Bots%2C%20I%27m%20interested%20in%20the%20Pro%20plan%20(NPR%201999%2Fmo).">Select Plan</a>
+      </div>
+
+      <div class="price-card" style="border-style:dashed;">
+        <div class="badge-top"><i class="fa-solid fa-building"></i> Custom Setup</div>
+        <div class="price-name">Custom Setup</div>
+        <div class="price-amt">NPR 1,000 <span>one-time</span></div>
+        <ul class="price-list">
+          <li><i class="fa-solid fa-check"></i> Brand setup & onboarding</li>
+          <li><i class="fa-solid fa-check"></i> Account connections</li>
+          <li><i class="fa-solid fa-check"></i> Template alignment</li>
+          <li><i class="fa-solid fa-check"></i> Posting schedule setup</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://wa.me/9779812241818?text=Hi%20Bajra%20Bots%2C%20I%27d%20like%20to%20book%20the%20Custom%20Setup%20(NPR%201000%20one-time).">Book Setup</a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="nav-logo-icon" style="background: linear-gradient(135deg, var(--accent) 0%, #7f8fff 100%);">
+              <i class="fa-solid fa-bolt" style="color:#fff;"></i>
+            </div>
+            Bajra Bots
+          </div>
+          <p class="footer-tagline">Making powerful AI automation simple, affordable, and accessible.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h5>Pages</h5>
+            <ul>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="resources.html">Resources</a></li>
+              <li><a href="blog.html">Blog</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Legal</h5>
+            <ul>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Contact</h5>
+            <ul>
+              <li><a href="contact.html">WhatsApp +977 9812241818</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Bajra Bots. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="cookies.html">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
