@@ -1,7 +1,7 @@
 :root{
   color-scheme: light;
-  --accent: #2f6fa6; /* premium medium-blue */
-  --accent-rgb: 47,111,166;
+  --accent: #0066ff;
+  --accent-rgb: 0, 102, 255;
 }
 
 body{
@@ -61,7 +61,7 @@ body{
   color: #fff;
   box-shadow: 0 18px 46px rgba(var(--accent-rgb), 0.34);
 }
-.btn-solid:hover{background: #295f8f}
+.btn-solid:hover{background: #0052cc}
 .btn-solid:active{transform: translate3d(0,0,0) scale(0.99)}
 
 .btn-dark{background: rgb(15 23 42); color: #fff;}
@@ -445,7 +445,7 @@ body{
 .typecaret{
   width: 2px;
   height: 0.9em;
-  background: rgba(47,111,166,0.75);
+  background: rgba(var(--accent-rgb), 0.75);
   border-radius: 2px;
   transform: translateY(2px);
   animation: caretBlink 1s steps(1,end) infinite;

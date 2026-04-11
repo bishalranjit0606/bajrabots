@@ -43,7 +43,7 @@
     const bar = document.querySelector("[data-promo-bar]");
     if (!bar) return;
     const close = bar.querySelector("[data-promo-close]");
-    const key = "bajra_promo_dismissed_v1";
+    const key = "sanjaal_promo_dismissed_v1";
 
     try {
       if (window.localStorage.getItem(key) === "1") {
@@ -158,7 +158,7 @@
         if (waEl) {
           const d = durations[key];
           const msg =
-            `Hi Bajra Bots, I want the ${plan.charAt(0).toUpperCase() + plan.slice(1)} plan.\n` +
+            `Hi Sanjaal Bots, I want the ${plan.charAt(0).toUpperCase() + plan.slice(1)} plan.\n` +
             `Duration: ${d.label}\n` +
             `Effective monthly: ${fmt(cfg.monthly)} NPR/mo\n` +
             `Total billed: ${fmt(cfg.billed)} NPR\n` +
