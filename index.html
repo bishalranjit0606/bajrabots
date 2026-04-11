@@ -1,0 +1,996 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bajra Bots</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./custom.css" />
+    <script defer src="./script.js"></script>
+  </head>
+  <body class="min-h-screen scroll-smooth bg-[radial-gradient(circle_at_top_left,rgba(47,111,166,0.07),transparent_30%),radial-gradient(circle_at_top_right,rgba(255,255,255,0.95),transparent_24%),linear-gradient(180deg,#f7fbff_0%,#f6f8fb_52%,#ffffff_100%)] text-slate-900">
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+      <div class="absolute left-[-8%] top-24 h-72 w-72 rounded-full bg-[#2f6fa6]/8 blur-3xl"></div>
+      <div class="absolute right-[-5%] top-[28rem] h-80 w-80 rounded-full bg-sky-100 blur-3xl"></div>
+      <div class="absolute bottom-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-slate-200/40 blur-3xl"></div>
+    </div>
+
+    <!-- Promo bar (dismissible) -->
+    <div class="promo-bar" data-promo-bar>
+      <div class="promo-bar__inner">
+        <div class="promo-bar__badge">LIMITED OFFER</div>
+        <div class="promo-bar__text">
+          <span class="promo-bar__strong">30% OFF</span> + <span class="promo-bar__strong">Free consulting</span> • Only <span class="promo-bar__strong">2 days</span> left
+        </div>
+        <div class="promo-bar__timer countdown" data-countdown="top">
+          <span data-countdown-part="d">02</span>d&nbsp;:
+          <span data-countdown-part="h">00</span>h&nbsp;:
+          <span data-countdown-part="m">00</span>m&nbsp;:
+          <span data-countdown-part="s">00</span>s
+        </div>
+        <button class="promo-bar__close" type="button" aria-label="Close offer banner" data-promo-close>
+          ×
+        </button>
+      </div>
+    </div>
+
+    <header class="sticky top-0 z-40 border-b border-white/50 bg-white/65 backdrop-blur-xl">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3">
+          <img
+            src="./bajra%20bots.png"
+            alt="Bajra Bots"
+            class="h-12 w-12"
+            loading="eager"
+            decoding="async"
+          />
+          <div>
+            <div class="text-sm font-semibold tracking-[0.18em] text-slate-500">BAJRA BOTS</div>
+          </div>
+        </div>
+
+        <nav class="hidden items-center gap-8 text-sm text-slate-600 md:flex">
+          <a href="#sample-tasks" class="transition hover:text-[#2f6fa6]">Sample Tasks</a>
+          <a href="#features" class="transition hover:text-[#2f6fa6]">Features</a>
+          <a href="#pricing" class="transition hover:text-[#2f6fa6]">Pricing</a>
+          <a href="#how-it-works" class="transition hover:text-[#2f6fa6]">How it Works</a>
+          <a href="#value" class="transition hover:text-[#2f6fa6]">Value</a>
+          <a href="#contact" class="transition hover:text-[#2f6fa6]">Contact</a>
+        </nav>
+
+        <a
+          href="./contact.html"
+          class="btn btn-sm btn-solid"
+        >
+          Get Started
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO (premium, no image/video background) -->
+      <section class="hero relative isolate flex min-h-[92vh] items-center overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.95),rgba(255,255,255,0.45),transparent_70%)]"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(47,111,166,0.10),transparent_46%),radial-gradient(circle_at_bottom_right,rgba(148,163,184,0.20),transparent_40%)]"></div>
+          <div class="absolute left-[-18%] top-[-18%] h-[34rem] w-[34rem] rounded-full bg-[#2f6fa6]/7 blur-3xl"></div>
+          <div class="absolute right-[-18%] top-[10%] h-[30rem] w-[30rem] rounded-full bg-slate-200/45 blur-3xl"></div>
+          <div class="absolute bottom-[-16%] left-1/2 h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-white/60 blur-3xl"></div>
+          <div class="hero-grid absolute inset-0 opacity-[0.55]"></div>
+
+          <!-- Floating social icons (Buffer-style) -->
+          <div class="social-cloud" aria-hidden="true">
+            <!-- Popular (crisp) -->
+            <div class="social-chip social-chip--crisp" style="--x: 8%; --y: 18%; --s: 1.05; --d: 0s;">
+              <img alt="" src="https://cdn.simpleicons.org/facebook/2f6fa6" />
+            </div>
+            <div class="social-chip social-chip--crisp" style="--x: 88%; --y: 18%; --s: 1.08; --d: -1.8s;">
+              <img alt="" src="https://cdn.simpleicons.org/instagram/2f6fa6" />
+            </div>
+            <div class="social-chip social-chip--crisp" style="--x: 90%; --y: 64%; --s: 1.08; --d: -3.2s;">
+              <img alt="" src="https://cdn.simpleicons.org/tiktok/2f6fa6" />
+            </div>
+            <div class="social-chip social-chip--crisp" style="--x: 14%; --y: 82%; --s: 1.0; --d: -2.4s;">
+              <img alt="" src="https://cdn.simpleicons.org/youtube/2f6fa6" />
+            </div>
+
+            <!-- Less popular (slightly blurred / softer) -->
+            <div class="social-chip social-chip--soft" style="--x: 34%; --y: 10%; --s: 0.92; --d: -0.9s;">
+              <img alt="" src="https://cdn.simpleicons.org/x/2f6fa6" />
+            </div>
+            <div class="social-chip social-chip--crisp" style="--x: 40%; --y: 86%; --s: 1.02; --d: -4.1s;">
+              <img alt="" src="https://cdn.simpleicons.org/instagram/2f6fa6" />
+            </div>
+            <div class="social-chip social-chip--soft" style="--x: 96%; --y: 42%; --s: 0.88; --d: -2.9s;">
+              <img alt="" src="https://cdn.simpleicons.org/pinterest/2f6fa6" />
+            </div>
+            <div class="social-chip social-chip--soft" style="--x: 4%; --y: 44%; --s: 0.86; --d: -3.7s;">
+              <img alt="" src="https://cdn.simpleicons.org/telegram/2f6fa6" />
+            </div>
+            <div class="social-chip social-chip--soft" style="--x: 66%; --y: 30%; --s: 0.86; --d: -1.2s;">
+              <img alt="" src="https://cdn.simpleicons.org/reddit/2f6fa6" />
+            </div>
+            <div class="social-chip social-chip--soft" style="--x: 70%; --y: 84%; --s: 0.82; --d: -5.0s;">
+              <img alt="" src="https://cdn.simpleicons.org/threads/2f6fa6" />
+            </div>
+          </div>
+        </div>
+
+        <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-24 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:px-8">
+          <div class="max-w-2xl">
+            <div
+              data-animate="fade-up"
+              class="fade-up mb-7 inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/60 px-4 py-2 text-xs font-medium tracking-[0.18em] text-slate-600 shadow-[0_10px_32px_rgba(15,23,42,0.06)] backdrop-blur-md"
+            >
+              <!-- Sparkles -->
+              <svg class="h-3.5 w-3.5 text-[#2f6fa6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 12l2 2 4-4"></path>
+                <path d="M12 2l1.5 5L19 9l-5.5 1.5L12 16l-1.5-5.5L5 9l5.5-2L12 2z"></path>
+              </svg>
+              AI SOCIAL MEDIA AUTOMATION
+            </div>
+
+            <h1 data-animate="fade-up" class="fade-up max-w-xl text-5xl font-semibold leading-[1.02] tracking-tight text-slate-900 sm:text-6xl lg:text-7xl">
+              Post Every Day.
+              <span class="typewrap text-slate-700">
+                <span
+                  class="typeword"
+                  data-typewriter
+                  data-words='["Automatically.","Daily.","On-brand.","Hands-free.","Consistently."]'
+                >
+                  Automatically.
+                </span>
+                <span class="typecaret" aria-hidden="true"></span>
+              </span>
+            </h1>
+
+            <p data-animate="fade-up" class="fade-up mt-6 max-w-xl text-base leading-8 text-slate-700/90 sm:text-lg">
+              AI-powered social media automation for small businesses in Nepal. Premium content, consistent posting, and brand-level polish—without hiring a team.
+            </p>
+
+            <div data-animate="fade-up" class="fade-up mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+              <a
+                href="https://wa.me/9779812241818?text=Hi%20Bajra%20Bots%2C%20I%27d%20like%20to%20get%20started.%20My%20business%20is%3A%20%5Btype%5D."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-lg btn-solid btn-primary group"
+              >
+                Start Posting Daily
+                <!-- ArrowRight -->
+                <svg class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"></path>
+                  <path d="M13 5l7 7-7 7"></path>
+                </svg>
+              </a>
+              <div class="inline-flex items-center gap-3 rounded-full border border-white/80 bg-white/60 px-4 py-2.5 text-sm text-slate-600 shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur-md">
+                <span class="inline-flex h-2 w-2 rounded-full bg-[#2f6fa6] shadow-[0_0_0_4px_rgba(47,111,166,0.12)]"></span>
+                Built for local growth • Designed for daily consistency
+              </div>
+            </div>
+
+            <!-- (Removed) Hero meta row: felt visually cheap/noisy -->
+          </div>
+
+            <div data-animate="fade-up" class="fade-up relative hidden lg:block">
+            <div class="absolute -left-6 top-12 h-24 w-24 rounded-full bg-white/50 blur-2xl"></div>
+              <div class="absolute right-0 top-0 h-32 w-32 rounded-full bg-[#2f6fa6]/16 blur-3xl"></div>
+
+            <div class="relative ml-auto w-full max-w-[520px]">
+              <div class="float-y rounded-[32px] border border-white/70 bg-white/55 p-5 shadow-[0_20px_80px_rgba(15,23,42,0.12)] backdrop-blur-2xl">
+                <div class="rounded-[28px] bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(244,248,252,0.9))] p-6">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <div class="text-sm font-medium text-slate-500">Automation Preview</div>
+                      <div class="mt-1 text-xl font-semibold text-slate-900">Your next 30 days</div>
+                    </div>
+                    <div class="rounded-2xl bg-[#2f6fa6]/14 p-3 text-[#2f6fa6]">
+                      <!-- Bot -->
+                      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 8V4H8"></path>
+                        <rect x="4" y="8" width="16" height="12" rx="2"></rect>
+                        <path d="M2 14h2"></path>
+                        <path d="M20 14h2"></path>
+                        <path d="M15 13v2"></path>
+                        <path d="M9 13v2"></path>
+                      </svg>
+                    </div>
+                  </div>
+
+                  <div class="mt-6 grid gap-4">
+                    <div class="flex items-center justify-between rounded-2xl border border-slate-200/70 bg-white/85 px-4 py-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)]">
+                      <div class="flex items-center gap-3">
+                        <div class="rounded-xl bg-slate-100 p-2.5 text-[#2f6fa6]">
+                          <!-- Globe -->
+                          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M2 12h20"></path>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                          </svg>
+                        </div>
+                        <span class="text-sm text-slate-600">Facebook posts scheduled</span>
+                      </div>
+                      <span class="text-lg font-semibold text-slate-900">30</span>
+                    </div>
+
+                    <div class="flex items-center justify-between rounded-2xl border border-slate-200/70 bg-white/85 px-4 py-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)]">
+                      <div class="flex items-center gap-3">
+                        <div class="rounded-xl bg-slate-100 p-2.5 text-[#2f6fa6]">
+                          <!-- Globe -->
+                          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M2 12h20"></path>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                          </svg>
+                        </div>
+                        <span class="text-sm text-slate-600">Instagram content ready</span>
+                      </div>
+                      <span class="text-lg font-semibold text-slate-900">30</span>
+                    </div>
+
+                    <div class="flex items-center justify-between rounded-2xl border border-slate-200/70 bg-white/85 px-4 py-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)]">
+                      <div class="flex items-center gap-3">
+                        <div class="rounded-xl bg-slate-100 p-2.5 text-[#2f6fa6]">
+                          <!-- Camera -->
+                          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path>
+                            <circle cx="12" cy="13" r="3"></circle>
+                          </svg>
+                        </div>
+                        <span class="text-sm text-slate-600">Short-form videos queued</span>
+                      </div>
+                      <span class="text-lg font-semibold text-slate-900">4</span>
+                    </div>
+                  </div>
+
+                  <div class="mt-6 rounded-2xl border border-[#2f6fa6]/18 bg-[linear-gradient(135deg,rgba(47,111,166,0.16),rgba(255,255,255,0.78))] p-4">
+                    <div class="text-sm font-medium text-slate-500">For small businesses in Nepal</div>
+                    <div class="mt-1 text-base font-semibold text-slate-900">Premium content systems without hiring a full team</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sample tasks / client tasks -->
+      <section id="sample-tasks" class="mx-auto max-w-7xl px-5 pb-6 pt-4 sm:px-6 lg:px-8">
+        <div class="overflow-hidden rounded-[36px] border border-white/70 bg-[linear-gradient(135deg,rgba(255,255,255,0.78),rgba(241,247,252,0.88))] p-8 shadow-[0_24px_80px_rgba(15,23,42,0.07)] backdrop-blur-2xl sm:p-10">
+          <div class="mx-auto max-w-3xl text-center">
+            <div class="mb-4 inline-flex items-center rounded-full border border-white/70 bg-white/70 px-4 py-1.5 text-xs font-medium tracking-[0.18em] text-slate-500 shadow-sm">
+              SAMPLE TASKS
+            </div>
+            <h2 class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">A glimpse of what Bajra Bots ships</h2>
+            <p class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
+              Realistic examples of daily posts, promos, and brand-ready creatives—generated and scheduled automatically.
+            </p>
+          </div>
+
+          <div class="mt-10">
+            <div class="marquee" aria-label="Sample task images">
+              <div class="marquee__track">
+                <img
+                  class="marquee__img"
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80"
+                  alt="Sample task: content planning"
+                  loading="lazy"
+                />
+                <img
+                  class="marquee__img"
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=80"
+                  alt="Sample task: analytics dashboard"
+                  loading="lazy"
+                />
+                <img
+                  class="marquee__img"
+                  src="https://images.unsplash.com/photo-1554774853-719586f82d77?auto=format&fit=crop&w=900&q=80"
+                  alt="Sample task: creative production"
+                  loading="lazy"
+                />
+                <img
+                  class="marquee__img"
+                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80"
+                  alt="Sample task: local promotion"
+                  loading="lazy"
+                />
+                <img
+                  class="marquee__img"
+                  src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80"
+                  alt="Sample task: brand-ready posting"
+                  loading="lazy"
+                />
+
+                <!-- Duplicate set for seamless loop -->
+                <img
+                  class="marquee__img"
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+                <img
+                  class="marquee__img"
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=80"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+                <img
+                  class="marquee__img"
+                  src="https://images.unsplash.com/photo-1554774853-719586f82d77?auto=format&fit=crop&w=900&q=80"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+                <img
+                  class="marquee__img"
+                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+                <img
+                  class="marquee__img"
+                  src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section id="features" class="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:px-8">
+        <div class="mx-auto mb-14 max-w-3xl text-center">
+          <div class="mb-4 inline-flex items-center rounded-full border border-white/60 bg-white/70 px-4 py-1.5 text-xs font-medium tracking-[0.18em] text-slate-500 shadow-sm backdrop-blur">WHAT BAJRA BOTS DOES</div>
+          <h2 class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">A premium social media engine for modern small businesses</h2>
+          <p class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">Everything is designed to keep your brand active, polished, and visible without adding more work to your day.</p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <!-- 1 -->
+          <div data-animate="fade-up" class="fade-up">
+            <div class="group h-full rounded-[28px] border border-white/80 bg-white/75 shadow-[0_16px_50px_rgba(15,23,42,0.08)] backdrop-blur-xl transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_26px_70px_rgba(15,23,42,0.12)]">
+              <div class="p-7">
+                <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgba(47,111,166,0.14),rgba(255,255,255,0.95))] text-[#2f6fa6] shadow-inner">
+                  <!-- Target -->
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="6"></circle>
+                    <circle cx="12" cy="12" r="2"></circle>
+                  </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900">AI researches your niche</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-600">Learns your business, audience, and local market before it posts.</p>
+              </div>
+            </div>
+          </div>
+          <!-- 2 -->
+          <div data-animate="fade-up" class="fade-up">
+            <div class="group h-full rounded-[28px] border border-white/80 bg-white/75 shadow-[0_16px_50px_rgba(15,23,42,0.08)] backdrop-blur-xl transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_26px_70px_rgba(15,23,42,0.12)]">
+              <div class="p-7">
+                <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgba(47,111,166,0.14),rgba(255,255,255,0.95))] text-[#2f6fa6] shadow-inner">
+                  <!-- MessageSquareText -->
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
+                    <path d="M7 8h10"></path>
+                    <path d="M7 12h7"></path>
+                  </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900">Generates captions &amp; visuals</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-600">Creates polished content designed to look premium and stay on-brand.</p>
+              </div>
+            </div>
+          </div>
+          <!-- 3 -->
+          <div data-animate="fade-up" class="fade-up">
+            <div class="group h-full rounded-[28px] border border-white/80 bg-white/75 shadow-[0_16px_50px_rgba(15,23,42,0.08)] backdrop-blur-xl transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_26px_70px_rgba(15,23,42,0.12)]">
+              <div class="p-7">
+                <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgba(47,111,166,0.14),rgba(255,255,255,0.95))] text-[#2f6fa6] shadow-inner">
+                  <!-- Bot -->
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 8V4H8"></path>
+                    <rect x="4" y="8" width="16" height="12" rx="2"></rect>
+                    <path d="M2 14h2"></path>
+                    <path d="M20 14h2"></path>
+                    <path d="M15 13v2"></path>
+                    <path d="M9 13v2"></path>
+                  </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900">Posts automatically every day</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-600">A hands-free social media engine that keeps your pages active daily.</p>
+              </div>
+            </div>
+          </div>
+          <!-- 4 -->
+          <div data-animate="fade-up" class="fade-up">
+            <div class="group h-full rounded-[28px] border border-white/80 bg-white/75 shadow-[0_16px_50px_rgba(15,23,42,0.08)] backdrop-blur-xl transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_26px_70px_rgba(15,23,42,0.12)]">
+              <div class="p-7">
+                <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgba(47,111,166,0.14),rgba(255,255,255,0.95))] text-[#2f6fa6] shadow-inner">
+                  <!-- Layers3 -->
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 2l10 6-10 6L2 8l10-6z"></path>
+                    <path d="M2 12l10 6 10-6"></path>
+                    <path d="M2 16l10 6 10-6"></path>
+                  </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900">Works on Facebook, Instagram, TikTok</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-600">One simple system across the platforms small businesses care about most.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing -->
+      <section id="pricing" class="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:px-8">
+        <div class="mx-auto mb-14 max-w-3xl text-center">
+          <div class="mb-4 inline-flex items-center rounded-full border border-white/60 bg-white/70 px-4 py-1.5 text-xs font-medium tracking-[0.18em] text-slate-500 shadow-sm backdrop-blur">PRICING</div>
+          <h2 class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">Simple plans with a premium feel</h2>
+          <p class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">Clear pricing for small businesses that want daily content without the cost of a full in-house team.</p>
+        </div>
+
+        <!-- Offer urgency (pricing) -->
+        <div class="mx-auto mb-8 max-w-5xl">
+          <div class="offer-strip">
+            <div class="offer-strip__badge">30% OFF</div>
+            <div class="offer-strip__text">
+              Offer ends soon • <span class="offer-strip__strong">Setup fee waived today</span> • <span class="offer-strip__strong">Free consulting included</span>
+            </div>
+            <div class="offer-strip__timer countdown" data-countdown="pricing">
+              <span data-countdown-part="d">02</span>d&nbsp;:
+              <span data-countdown-part="h">00</span>h&nbsp;:
+              <span data-countdown-part="m">00</span>m&nbsp;:
+              <span data-countdown-part="s">00</span>s
+            </div>
+          </div>
+        </div>
+
+        <!-- Billing cycle toggle -->
+        <div class="mx-auto max-w-5xl">
+          <div class="billing-toggle" role="tablist" aria-label="Billing duration" data-billing-toggle>
+            <button class="billing-toggle__btn is-active" type="button" role="tab" aria-selected="true" data-duration="1m">1 Month</button>
+            <button class="billing-toggle__btn" type="button" role="tab" aria-selected="false" data-duration="3m">3 Months</button>
+            <button class="billing-toggle__btn" type="button" role="tab" aria-selected="false" data-duration="6m">6 Months</button>
+            <button class="billing-toggle__btn billing-toggle__btn--best" type="button" role="tab" aria-selected="false" data-duration="1y">
+              1 Year <span class="billing-toggle__pill">Best Value</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-10 grid gap-6 lg:grid-cols-3" data-pricing-root>
+          <!-- Starter -->
+          <div data-animate="fade-up" class="fade-up h-full">
+            <div class="pricing-card">
+              <div class="pricing-card__body">
+                <div>
+                  <div class="pricing-card__eyebrow">Starter</div>
+                  <div class="pricing-card__price-row">
+                    <div class="pricing-card__price" data-price="starter">999</div>
+                    <div class="pricing-card__per">NPR/mo</div>
+                    <div class="pricing-card__compare" data-compare="starter">1299</div>
+                  </div>
+                  <div class="pricing-card__billed" data-billed="starter">Billed as 999 NPR</div>
+                  <p class="mt-4 text-sm leading-7 text-slate-600">Simple daily posting for businesses getting started.</p>
+                </div>
+
+                <div class="pricing-card__features">
+                  <div class="pricing-card__feature pricing-card__feature--highlight">Free consulting (niche + content strategy + AI training)</div>
+                  <div class="pricing-card__feature pricing-card__feature--urgency">
+                    <span class="setup-fee-old">1,000 NPR Setup Fee</span> <span class="setup-fee-pill">(Waived Today!)</span>
+                  </div>
+                  <div class="pricing-card__feature">Facebook + Instagram</div>
+                  <div class="pricing-card__feature">Daily posts for 1 month</div>
+                  <div class="pricing-card__feature">Content calendar included</div>
+                </div>
+
+                <div class="mt-8 pt-2">
+                  <a
+                    href="https://wa.me/9779812241818"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-lg btn-solid btn-primary btn-block text-center"
+                    data-wa-link="starter"
+                  >
+                    Choose Starter
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Growth -->
+          <div data-animate="fade-up" class="fade-up h-full">
+            <div class="pricing-card pricing-card--popular">
+              <div class="pricing-card__badge">BEST PLAN • MOST POPULAR</div>
+              <div class="pricing-card__body">
+                <div>
+                  <div class="pricing-card__eyebrow">Growth</div>
+                  <div class="pricing-card__price-row">
+                    <div class="pricing-card__price" data-price="growth">1499</div>
+                    <div class="pricing-card__per">NPR/mo</div>
+                    <div class="pricing-card__compare" data-compare="growth">1949</div>
+                  </div>
+                  <div class="pricing-card__billed" data-billed="growth">Billed as 1499 NPR</div>
+                  <p class="mt-4 text-sm leading-7 text-slate-600">Best for brands that want stronger reach and more variety.</p>
+                </div>
+
+                <div class="pricing-card__features">
+                  <div class="pricing-card__feature pricing-card__feature--highlight">Free consulting (niche + content strategy + AI training)</div>
+                  <div class="pricing-card__feature pricing-card__feature--urgency">
+                    <span class="setup-fee-old">1,000 NPR Setup Fee</span> <span class="setup-fee-pill">(Waived Today!)</span>
+                  </div>
+                  <div class="pricing-card__feature">Facebook + Instagram + TikTok</div>
+                  <div class="pricing-card__feature">Daily posts for 1 month</div>
+                  <div class="pricing-card__feature">2 ultra-premium AI videos/month</div>
+                  <div class="pricing-card__feature">Content calendar included</div>
+                </div>
+
+                <div class="mt-8 pt-2">
+                  <a
+                    href="https://wa.me/9779812241818"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-lg btn-offer btn-block text-center"
+                    data-wa-link="growth"
+                  >
+                    Choose Growth
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scale -->
+          <div data-animate="fade-up" class="fade-up h-full">
+            <div class="pricing-card">
+              <div class="pricing-card__body">
+                <div>
+                  <div class="pricing-card__eyebrow">Scale</div>
+                  <div class="pricing-card__price-row">
+                    <div class="pricing-card__price" data-price="scale">1999</div>
+                    <div class="pricing-card__per">NPR/mo</div>
+                    <div class="pricing-card__compare" data-compare="scale">2599</div>
+                  </div>
+                  <div class="pricing-card__billed" data-billed="scale">Billed as 1999 NPR</div>
+                  <p class="mt-4 text-sm leading-7 text-slate-600">For businesses ready to publish more premium short-form content.</p>
+                </div>
+
+                <div class="pricing-card__features">
+                  <div class="pricing-card__feature pricing-card__feature--highlight">Free consulting (niche + content strategy + AI training)</div>
+                  <div class="pricing-card__feature pricing-card__feature--urgency">
+                    <span class="setup-fee-old">1,000 NPR Setup Fee</span> <span class="setup-fee-pill">(Waived Today!)</span>
+                  </div>
+                  <div class="pricing-card__feature">Facebook + Instagram + TikTok</div>
+                  <div class="pricing-card__feature">Daily posts for 1 month</div>
+                  <div class="pricing-card__feature">4 ultra-premium AI videos/month</div>
+                  <div class="pricing-card__feature">Content calendar included</div>
+                </div>
+
+                <div class="mt-8 pt-2">
+                  <a
+                    href="https://wa.me/9779812241818"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-lg btn-solid btn-primary btn-block text-center"
+                    data-wa-link="scale"
+                  >
+                    Choose Scale
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section id="how-it-works" class="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:px-8">
+        <div class="mx-auto mb-14 max-w-3xl text-center">
+          <div class="mb-4 inline-flex items-center rounded-full border border-white/60 bg-white/70 px-4 py-1.5 text-xs font-medium tracking-[0.18em] text-slate-500 shadow-sm backdrop-blur">HOW IT WORKS</div>
+          <h2 class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">Four smooth steps to a fully automated social presence</h2>
+          <p class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">Designed to feel effortless from day one, with premium execution in the background.</p>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-4">
+          <!-- 01 -->
+          <div data-animate="fade-up" class="fade-up relative">
+            <div class="h-full rounded-[28px] border border-white/80 bg-white/75 shadow-[0_16px_50px_rgba(15,23,42,0.08)] backdrop-blur-xl">
+              <div class="p-7">
+                <div class="mb-6 flex items-center justify-between">
+                  <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgba(47,111,166,0.16),rgba(255,255,255,0.95))] text-[#2f6fa6] shadow-inner">
+                    <!-- CircleDollarSign -->
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M16 8h-5a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4H8"></path>
+                      <path d="M12 6v2"></path>
+                      <path d="M12 16v2"></path>
+                    </svg>
+                  </div>
+                  <div class="text-4xl font-semibold tracking-tight text-slate-200">01</div>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900">Subscribe</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-600">Choose a plan that fits your business goals.</p>
+              </div>
+            </div>
+          </div>
+          <!-- 02 -->
+          <div data-animate="fade-up" class="fade-up relative">
+            <div class="h-full rounded-[28px] border border-white/80 bg-white/75 shadow-[0_16px_50px_rgba(15,23,42,0.08)] backdrop-blur-xl">
+              <div class="p-7">
+                <div class="mb-6 flex items-center justify-between">
+                  <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgba(47,111,166,0.16),rgba(255,255,255,0.95))] text-[#2f6fa6] shadow-inner">
+                    <!-- Sparkles -->
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M12 2l1.5 5L19 9l-5.5 1.5L12 16l-1.5-5.5L5 9l5.5-2L12 2z"></path>
+                      <path d="M4 20l1-2 2-1-2-1-1-2-1 2-2 1 2 1 1 2z"></path>
+                    </svg>
+                  </div>
+                  <div class="text-4xl font-semibold tracking-tight text-slate-200">02</div>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900">AI researches your business</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-600">We analyze your niche, audience, and positioning.</p>
+              </div>
+            </div>
+          </div>
+          <!-- 03 -->
+          <div data-animate="fade-up" class="fade-up relative">
+            <div class="h-full rounded-[28px] border border-white/80 bg-white/75 shadow-[0_16px_50px_rgba(15,23,42,0.08)] backdrop-blur-xl">
+              <div class="p-7">
+                <div class="mb-6 flex items-center justify-between">
+                  <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgba(47,111,166,0.16),rgba(255,255,255,0.95))] text-[#2f6fa6] shadow-inner">
+                    <!-- Wand2 -->
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M15 4l5 5"></path>
+                      <path d="M13 6l5 5"></path>
+                      <path d="M3 21l9-9"></path>
+                      <path d="M12 12l3 3"></path>
+                      <path d="M7 14l3 3"></path>
+                    </svg>
+                  </div>
+                  <div class="text-4xl font-semibold tracking-tight text-slate-200">03</div>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900">Content is generated</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-600">Captions, creatives, and short-form content are prepared for you.</p>
+              </div>
+            </div>
+          </div>
+          <!-- 04 -->
+          <div data-animate="fade-up" class="fade-up relative">
+            <div class="h-full rounded-[28px] border border-white/80 bg-white/75 shadow-[0_16px_50px_rgba(15,23,42,0.08)] backdrop-blur-xl">
+              <div class="p-7">
+                <div class="mb-6 flex items-center justify-between">
+                  <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgba(47,111,166,0.16),rgba(255,255,255,0.95))] text-[#2f6fa6] shadow-inner">
+                    <!-- Zap -->
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                    </svg>
+                  </div>
+                  <div class="text-4xl font-semibold tracking-tight text-slate-200">04</div>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900">Posts automatically every day</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-600">Your social presence stays active without daily effort.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Value -->
+      <section id="value" class="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:px-8">
+        <div class="mx-auto mb-14 max-w-3xl text-center">
+          <div class="mb-4 inline-flex items-center rounded-full border border-white/60 bg-white/70 px-4 py-1.5 text-xs font-medium tracking-[0.18em] text-slate-500 shadow-sm backdrop-blur">VALUE</div>
+          <h2 class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">Built to deliver practical outcomes, not extra complexity</h2>
+          <p class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">The product stays simple on the surface while giving small businesses a more consistent and professional digital presence.</p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <!-- Save time -->
+          <div data-animate="fade-up" class="fade-up">
+            <div class="rounded-[28px] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.84),rgba(248,250,252,0.92))] p-7 shadow-[0_16px_44px_rgba(15,23,42,0.07)] backdrop-blur-xl transition hover:-translate-y-1 hover:shadow-[0_22px_60px_rgba(15,23,42,0.11)]">
+              <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-slate-100 text-[#2f6fa6]">
+                <!-- Clock3 -->
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 6v6l4 2"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-slate-900">Save time</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600">No more planning, writing, designing, and posting every day.</p>
+            </div>
+          </div>
+          <!-- Stay consistent -->
+          <div data-animate="fade-up" class="fade-up">
+            <div class="rounded-[28px] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.84),rgba(248,250,252,0.92))] p-7 shadow-[0_16px_44px_rgba(15,23,42,0.07)] backdrop-blur-xl transition hover:-translate-y-1 hover:shadow-[0_22px_60px_rgba(15,23,42,0.11)]">
+              <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-slate-100 text-[#2f6fa6]">
+                <!-- Check -->
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6L9 17l-5-5"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-slate-900">Stay consistent</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600">Show up daily with a steady, reliable social media presence.</p>
+            </div>
+          </div>
+          <!-- Grow your brand -->
+          <div data-animate="fade-up" class="fade-up">
+            <div class="rounded-[28px] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.84),rgba(248,250,252,0.92))] p-7 shadow-[0_16px_44px_rgba(15,23,42,0.07)] backdrop-blur-xl transition hover:-translate-y-1 hover:shadow-[0_22px_60px_rgba(15,23,42,0.11)]">
+              <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-slate-100 text-[#2f6fa6]">
+                <!-- TrendingUp -->
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 17l6-6 4 4 7-7"></path>
+                  <path d="M14 7h7v7"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-slate-900">Grow your brand</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600">Build awareness and trust with content that keeps working.</p>
+            </div>
+          </div>
+          <!-- No effort required -->
+          <div data-animate="fade-up" class="fade-up">
+            <div class="rounded-[28px] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.84),rgba(248,250,252,0.92))] p-7 shadow-[0_16px_44px_rgba(15,23,42,0.07)] backdrop-blur-xl transition hover:-translate-y-1 hover:shadow-[0_22px_60px_rgba(15,23,42,0.11)]">
+              <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-slate-100 text-[#2f6fa6]">
+                <!-- PlayCircle -->
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M10 8l6 4-6 4V8z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-slate-900">No effort required</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600">Focus on your business while Bajra Bots handles the posting.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trust & positioning -->
+      <section class="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:px-8">
+        <div class="overflow-hidden rounded-[36px] border border-white/70 bg-[linear-gradient(135deg,rgba(255,255,255,0.82),rgba(241,247,252,0.92))] p-8 shadow-[0_24px_80px_rgba(15,23,42,0.08)] backdrop-blur-2xl sm:p-10 lg:p-12">
+          <div class="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+            <div>
+              <div class="mb-4 inline-flex items-center rounded-full border border-white/70 bg-white/70 px-4 py-1.5 text-xs font-medium tracking-[0.18em] text-slate-500 shadow-sm">TRUST &amp; POSITIONING</div>
+              <h2 class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">Purpose-built for businesses that need growth without extra overhead</h2>
+              <p class="mt-5 max-w-xl text-base leading-8 text-slate-600">
+                Bajra Bots combines automation, creative generation, and consistent publishing into one premium system made for small businesses in Nepal.
+              </p>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="rounded-[24px] border border-white/80 bg-white/80 p-5 shadow-[0_14px_36px_rgba(15,23,42,0.06)]">
+                <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2f6fa6]/12 text-[#2f6fa6]">
+                  <!-- Briefcase -->
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="7" width="20" height="14" rx="2"></rect>
+                    <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path>
+                    <path d="M2 13h20"></path>
+                  </svg>
+                </div>
+                <div class="text-base font-medium text-slate-800">Built for Nepali businesses</div>
+              </div>
+
+              <div class="rounded-[24px] border border-white/80 bg-white/80 p-5 shadow-[0_14px_36px_rgba(15,23,42,0.06)]">
+                <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2f6fa6]/12 text-[#2f6fa6]">
+                  <!-- CircleDollarSign -->
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M16 8h-5a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4H8"></path>
+                    <path d="M12 6v2"></path>
+                    <path d="M12 16v2"></path>
+                  </svg>
+                </div>
+                <div class="text-base font-medium text-slate-800">Affordable for small businesses</div>
+              </div>
+
+              <div class="rounded-[24px] border border-white/80 bg-white/80 p-5 shadow-[0_14px_36px_rgba(15,23,42,0.06)]">
+                <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2f6fa6]/12 text-[#2f6fa6]">
+                  <!-- Bot -->
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 8V4H8"></path>
+                    <rect x="4" y="8" width="16" height="12" rx="2"></rect>
+                    <path d="M2 14h2"></path>
+                    <path d="M20 14h2"></path>
+                    <path d="M15 13v2"></path>
+                    <path d="M9 13v2"></path>
+                  </svg>
+                </div>
+                <div class="text-base font-medium text-slate-800">Powered by AI</div>
+              </div>
+
+              <div class="rounded-[24px] border border-white/80 bg-white/80 p-5 shadow-[0_14px_36px_rgba(15,23,42,0.06)]">
+                <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2f6fa6]/12 text-[#2f6fa6]">
+                  <!-- ShieldCheck -->
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                </div>
+                <div class="text-base font-medium text-slate-800">No need to hire a team</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section id="start" class="mx-auto max-w-6xl px-5 pb-24 pt-4 sm:px-6 lg:px-8">
+        <div data-animate="fade-up" class="fade-up relative overflow-hidden rounded-[36px] border border-[#2f6fa6]/18 bg-[linear-gradient(135deg,rgba(47,111,166,0.16),rgba(255,255,255,0.9),rgba(242,247,251,0.96))] px-6 py-12 shadow-[0_24px_70px_rgba(47,111,166,0.12)] sm:px-10 lg:px-14">
+          <div class="absolute right-0 top-0 h-48 w-48 rounded-full bg-white/45 blur-3xl"></div>
+          <div class="relative text-center">
+            <div class="mb-4 inline-flex items-center rounded-full border border-white/70 bg-white/70 px-4 py-1.5 text-xs font-medium tracking-[0.18em] text-slate-500 shadow-sm">START NOW</div>
+            <h2 class="mx-auto max-w-3xl text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">Stay visible every day without doing the posting yourself</h2>
+            <p class="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-600">
+              Bring AI-powered consistency to your business and create a stronger social media presence with less effort.
+            </p>
+            <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <a
+                href="https://wa.me/9779812241818?text=Hi%20Bajra%20Bots%2C%20I%27d%20like%20to%20get%20started.%20Please%20share%20next%20steps."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-lg btn-solid btn-primary text-center"
+              >
+                Get Started
+              </a>
+              <a href="#pricing" class="rounded-full border border-white/80 bg-white/80 px-6 py-3 text-sm font-medium text-slate-700 shadow-sm transition hover:text-[#2f6fa6]">
+                View Pricing
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="relative overflow-hidden border-t border-white/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.74),rgba(248,250,252,0.88))] backdrop-blur-2xl">
+      <div class="pointer-events-none absolute inset-0">
+        <div class="absolute left-[-10%] top-[-30%] h-[26rem] w-[26rem] rounded-full bg-[#2f6fa6]/10 blur-3xl"></div>
+        <div class="absolute right-[-12%] bottom-[-35%] h-[28rem] w-[28rem] rounded-full bg-slate-200/55 blur-3xl"></div>
+      </div>
+
+      <div class="relative mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:px-8">
+        <!-- Footer CTA -->
+        <div class="overflow-hidden rounded-[32px] border border-white/70 bg-[linear-gradient(135deg,rgba(47,111,166,0.12),rgba(255,255,255,0.86))] p-8 shadow-[0_24px_80px_rgba(15,23,42,0.08)] backdrop-blur-2xl sm:p-10">
+          <div class="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
+            <div>
+              <div class="text-sm font-semibold tracking-[0.18em] text-slate-500">READY TO START?</div>
+              <div class="mt-3 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+                Get daily posting without hiring a team
+              </div>
+              <div class="mt-3 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+                Tap WhatsApp and tell us your business type. We’ll share next steps, timelines, and the best plan for you.
+              </div>
+            </div>
+            <div class="flex w-full flex-col gap-3 sm:flex-row lg:w-auto">
+              <a
+                href="https://wa.me/9779812241818?text=Hi%20Bajra%20Bots%2C%20I%27m%20ready%20to%20get%20started.%20My%20business%20is%3A%20%5Btype%5D."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-lg btn-solid btn-primary btn-block sm:w-auto"
+              >
+                WhatsApp Now
+              </a>
+              <a href="./contact.html" class="btn btn-lg btn-outline btn-block sm:w-auto text-center">More ways to contact</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 grid gap-10 lg:grid-cols-12">
+          <!-- Brand -->
+          <div class="lg:col-span-5">
+            <div class="flex items-center gap-3">
+              <img
+                src="./bajra%20bots.png"
+                alt="Bajra Bots"
+                class="h-12 w-12"
+                loading="lazy"
+                decoding="async"
+              />
+              <div>
+                <div class="text-sm font-semibold tracking-[0.18em] text-slate-500">BAJRA BOTS</div>
+                <p class="mt-1 text-sm text-slate-500">AI-powered social media automation for small businesses in Nepal</p>
+              </div>
+            </div>
+
+            <div class="mt-6 max-w-md text-sm leading-7 text-slate-600">
+              Premium content systems that research your niche, generate creatives, and publish consistently—so your business stays visible every day.
+            </div>
+
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+              <a
+                href="https://wa.me/9779812241818"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/65 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:text-[#2f6fa6]"
+              >
+                WhatsApp
+              </a>
+              <a
+                href="mailto:bajrabots@gmail.com"
+                class="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/65 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:text-[#2f6fa6]"
+              >
+                Email
+              </a>
+              <a
+                href="https://www.bajrabots.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/65 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:text-[#2f6fa6]"
+              >
+                Website
+              </a>
+            </div>
+          </div>
+
+          <!-- Links -->
+          <div class="grid gap-10 sm:grid-cols-3 lg:col-span-7">
+            <div>
+              <div class="text-sm font-semibold tracking-[0.18em] text-slate-500">PRODUCT</div>
+              <div class="mt-4 grid gap-3 text-sm text-slate-600">
+                <a href="#features" class="transition hover:text-[#2f6fa6]">Features</a>
+                <a href="#how-it-works" class="transition hover:text-[#2f6fa6]">How it works</a>
+                <a href="#pricing" class="transition hover:text-[#2f6fa6]">Pricing</a>
+                <a href="./contact.html" class="transition hover:text-[#2f6fa6]">Contact</a>
+              </div>
+            </div>
+            <div>
+              <div class="text-sm font-semibold tracking-[0.18em] text-slate-500">PLANS</div>
+              <div class="mt-4 grid gap-3 text-sm text-slate-600">
+                <a href="#pricing" class="transition hover:text-[#2f6fa6]">Starter (999)</a>
+                <a href="#pricing" class="transition hover:text-[#2f6fa6]">Growth (1499)</a>
+                <a href="#pricing" class="transition hover:text-[#2f6fa6]">Scale (1999)</a>
+              </div>
+            </div>
+            <div>
+              <div class="text-sm font-semibold tracking-[0.18em] text-slate-500">CONTACT</div>
+              <div class="mt-4 grid gap-3 text-sm text-slate-600">
+                <a href="mailto:bajrabots@gmail.com" class="transition hover:text-[#2f6fa6]">bajrabots@gmail.com</a>
+                <a href="https://wa.me/9779812241818" class="transition hover:text-[#2f6fa6]">+977 9812241818</a>
+                <div class="text-sm text-slate-500">Kathmandu, Nepal</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/70 pt-8 text-sm text-slate-500 sm:flex-row">
+          <div>© <span id="year"></span> Bajra Bots. All rights reserved.</div>
+          <div class="flex items-center gap-6">
+            <a href="./contact.html" class="transition hover:text-[#2f6fa6]">Support</a>
+            <a href="./contact.html" class="transition hover:text-[#2f6fa6]">Sales</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp button -->
+    <a
+      class="wa-fab"
+      href="https://wa.me/9779812241818"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+      title="Chat on WhatsApp"
+    >
+      <span class="wa-fab__pulse" aria-hidden="true"></span>
+      <span class="wa-fab__icon" aria-hidden="true">
+        <!-- WhatsApp icon -->
+        <svg viewBox="0 0 32 32" fill="none">
+          <path
+            fill="currentColor"
+            d="M19.11 17.76c-.2-.1-1.16-.57-1.34-.64-.18-.07-.31-.1-.44.1-.13.2-.5.64-.61.77-.11.13-.23.15-.43.05-.2-.1-.84-.31-1.6-.98-.59-.52-.99-1.17-1.11-1.36-.12-.2-.01-.3.09-.4.09-.09.2-.23.3-.34.1-.11.13-.2.2-.34.07-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33h-.38c-.13 0-.34.05-.52.25-.18.2-.68.66-.68 1.61 0 .95.7 1.87.8 2 .1.13 1.37 2.09 3.31 2.93.46.2.82.32 1.1.41.46.15.88.13 1.21.08.37-.06 1.16-.47 1.32-.93.16-.46.16-.85.11-.93-.05-.08-.18-.13-.38-.23Z"
+          />
+          <path
+            fill="currentColor"
+            d="M16.02 4C9.39 4 4 9.24 4 15.7c0 2.44.78 4.7 2.11 6.57L5.2 28l5.93-1.82c1.8.98 3.87 1.54 6.09 1.54 6.63 0 12.02-5.24 12.02-11.7C29.24 9.24 22.65 4 16.02 4Zm0 21.39c-2.08 0-4.01-.6-5.64-1.63l-.4-.25-3.52 1.08 1.1-3.36-.27-.39c-1.23-1.76-1.95-3.87-1.95-6.15 0-5.47 4.79-9.92 10.68-9.92 5.89 0 10.68 4.45 10.68 9.92 0 5.47-4.79 9.92-10.68 9.92Z"
+          />
+        </svg>
+      </span>
+    </a>
+  </body>
+</html>
