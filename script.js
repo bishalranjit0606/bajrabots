@@ -79,25 +79,27 @@
       "1y": { label: "1 Year", months: 12 },
     };
 
-    // Pricing matrix from your spec (monthly + total billed)
+    // Pricing matrix (monthly + total billed)
+    // 30% OFF is applied on 1-month pricing (compare shows pre-discount price).
+    // Longer durations provide additional discounts; Growth is always positioned as best value.
     const matrix = {
       starter: {
-        "1m": { monthly: 999, compare: 1299, billed: 999, note: null },
-        "3m": { monthly: 899, compare: null, billed: 2697, note: "Save 10%" },
-        "6m": { monthly: 833, compare: null, billed: 4999, note: "Save 16%" },
-        "1y": { monthly: 749, compare: null, billed: 8999, note: "Save 25%" },
+        "1m": { monthly: 999, compare: 1427, billed: 999, note: null },
+        "3m": { monthly: 949, compare: null, billed: 2847, note: "Save 5%" },
+        "6m": { monthly: 899, compare: null, billed: 5394, note: "Save 10%" },
+        "1y": { monthly: 799, compare: null, billed: 9588, note: "Save 20%" },
       },
       growth: {
-        "1m": { monthly: 1499, compare: 1949, billed: 1499, note: null },
-        "3m": { monthly: 1399, compare: null, billed: 4197, note: "Save 7%" },
-        "6m": { monthly: 1249, compare: null, billed: 7499, note: "Save 16%" },
-        "1y": { monthly: 1083, compare: null, billed: 12999, note: "Save 28%" },
+        "1m": { monthly: 1499, compare: 2141, billed: 1499, note: null },
+        "3m": { monthly: 1349, compare: null, billed: 4047, note: "Save 10%" },
+        "6m": { monthly: 1249, compare: null, billed: 7494, note: "Save 17%" },
+        "1y": { monthly: 999, compare: null, billed: 11988, note: "Best Value • Save 33%" },
       },
-      scale: {
-        "1m": { monthly: 1999, compare: 2599, billed: 1999, note: null },
-        "3m": { monthly: 1849, compare: null, billed: 5547, note: "Save 8%" },
-        "6m": { monthly: 1666, compare: null, billed: 9999, note: "Save 16%" },
-        "1y": { monthly: 1499, compare: null, billed: 17999, note: "Save 25%" },
+      professional: {
+        "1m": { monthly: 1999, compare: 2856, billed: 1999, note: null },
+        "3m": { monthly: 1799, compare: null, billed: 5397, note: "Save 10%" },
+        "6m": { monthly: 1649, compare: null, billed: 9894, note: "Save 18%" },
+        "1y": { monthly: 1399, compare: null, billed: 16788, note: "Save 30%" },
       },
     };
 
@@ -119,8 +121,8 @@
         b.setAttribute("aria-selected", active ? "true" : "false");
       }
 
-      /** @type {Array<"starter"|"growth"|"scale">} */
-      const plans = ["starter", "growth", "scale"];
+      /** @type {Array<"starter"|"growth"|"professional">} */
+      const plans = ["starter", "growth", "professional"];
       for (const plan of plans) {
         const cfg = matrix[plan][key];
         const priceEl = root.querySelector(`[data-price="${plan}"]`);
@@ -144,7 +146,10 @@
             compareEl.style.display = "none";
           }
           compareEl.classList.toggle("is-save", cfg.compare == null && Boolean(cfg.note));
-          compareEl.classList.toggle("is-best", key === "1y" && cfg.compare == null && Boolean(cfg.note));
+          compareEl.classList.toggle(
+            "is-best",
+            plan === "growth" && key === "1y" && cfg.compare == null && Boolean(cfg.note)
+          );
           // Ensure compare is struck only when it's a compare price (1m)
           compareEl.style.textDecoration = cfg.compare != null ? "line-through" : "none";
           applyAnim(compareEl);

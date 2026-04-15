@@ -281,6 +281,30 @@ body{
   border-bottom-color: rgba(15,23,42,0.70);
 }
 
+.pricing-card__feature--excluded{
+  color: rgba(100,116,139,0.92);
+  background: rgba(248,250,252,0.68);
+  border-color: rgba(226,232,240,0.85);
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(148,163,184,0.95);
+}
+.pricing-card__feature--excluded::before{
+  background: rgba(239,68,68,0.14);
+}
+.pricing-card__feature--excluded::after{
+  content: "×";
+  left: 18px;
+  width: auto;
+  height: auto;
+  border: 0;
+  transform: translateY(-58%);
+  color: rgba(239,68,68,0.92);
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 1;
+}
+
 .setup-fee-old{
   text-decoration: line-through;
   color: rgba(71,85,105,0.9);
@@ -305,6 +329,7 @@ body{
   font-weight: 900;
 }
 .pricing-card__compare.is-best{
+  white-space: nowrap;
   padding: 4px 10px;
   border-radius: 999px;
   background: linear-gradient(90deg, #fbbf24, #fde68a 45%, #fbbf24);
