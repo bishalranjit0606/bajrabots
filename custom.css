@@ -197,6 +197,7 @@ body{
   margin-top: 16px;
   display: flex;
   align-items: baseline;
+  flex-wrap: wrap;
   gap: 10px;
 }
 .pricing-card__price{
@@ -216,6 +217,7 @@ body{
   font-weight: 800;
   color: rgba(100,116,139,0.9);
   text-decoration: line-through;
+  max-width: 100%;
 }
 .pricing-card__billed{
   margin-top: 10px;
@@ -330,6 +332,9 @@ body{
 }
 .pricing-card__compare.is-best{
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
   padding: 4px 10px;
   border-radius: 999px;
   background: linear-gradient(90deg, #fbbf24, #fde68a 45%, #fbbf24);

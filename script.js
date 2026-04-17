@@ -84,22 +84,22 @@
     // Longer durations provide additional discounts; Growth is always positioned as best value.
     const matrix = {
       starter: {
-        "1m": { monthly: 999, compare: 1427, billed: 999, note: null },
-        "3m": { monthly: 949, compare: null, billed: 2847, note: "Save 5%" },
-        "6m": { monthly: 899, compare: null, billed: 5394, note: "Save 10%" },
-        "1y": { monthly: 799, compare: null, billed: 9588, note: "Save 20%" },
+        "1m": { monthly: 2499, compare: 3570, billed: 2499, note: null },
+        "3m": { monthly: 2374, compare: null, billed: 7122, note: "Save 5%" },
+        "6m": { monthly: 2249, compare: null, billed: 13494, note: "Save 10%" },
+        "1y": { monthly: 1999, compare: null, billed: 23988, note: "Save 20%" },
       },
       growth: {
-        "1m": { monthly: 1499, compare: 2141, billed: 1499, note: null },
-        "3m": { monthly: 1349, compare: null, billed: 4047, note: "Save 10%" },
-        "6m": { monthly: 1249, compare: null, billed: 7494, note: "Save 17%" },
-        "1y": { monthly: 999, compare: null, billed: 11988, note: "Best Value • Save 33%" },
+        "1m": { monthly: 4999, compare: 7141, billed: 4999, note: null },
+        "3m": { monthly: 4499, compare: null, billed: 13497, note: "Save 10%" },
+        "6m": { monthly: 3999, compare: null, billed: 23994, note: "Save 20%" },
+        "1y": { monthly: 3333, compare: null, billed: 39996, note: "Best Value • Save 33%" },
       },
       professional: {
-        "1m": { monthly: 1999, compare: 2856, billed: 1999, note: null },
-        "3m": { monthly: 1799, compare: null, billed: 5397, note: "Save 10%" },
-        "6m": { monthly: 1649, compare: null, billed: 9894, note: "Save 18%" },
-        "1y": { monthly: 1399, compare: null, billed: 16788, note: "Save 30%" },
+        "1m": { monthly: 6999, compare: 9999, billed: 6999, note: null },
+        "3m": { monthly: 6299, compare: null, billed: 18897, note: "Save 10%" },
+        "6m": { monthly: 5749, compare: null, billed: 34494, note: "Save 18%" },
+        "1y": { monthly: 4899, compare: null, billed: 58788, note: "Save 30%" },
       },
     };
 
